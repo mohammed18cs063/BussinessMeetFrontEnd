@@ -1,0 +1,80 @@
+<app-user-header></app-user-header>
+<section class="sec">
+<div class="container"><br>
+    <div class="text-center"><h1>Booked Events</h1></div><br><br>
+      
+    
+    
+      <div  *ngFor="let event of view_event">
+          <a
+            [routerLink]="[event.event_Id]"
+            [queryParams]="{ allowEdit: event.event_Id > 0 ? '1' : '0' }"
+          >
+            </a>
+            <div class="row" styles="p3-border bg-light;">
+                <div class="col">
+                    
+                    {{ event.event_Id }}
+                </div>
+                <div class="col">
+                    {{ event.eventName }}
+                </div> 
+                <div class="col">
+                    {{event.eventDate|date:'shortDate'}}
+                </div>  
+                <div class="col">
+                    {{event.eventTime}}
+                </div>       
+                <div class="col">
+                    {{ event.totalPrice | currency: "INR" }}
+                </div>
+                <div class="col">
+                    
+                  <button
+                  type="button"
+                  class="btn btn-md btn-success"
+                  (click)="updatebooked_event(event.event_Id)"
+                  
+                >
+                  Edit
+                  </button>
+                
+                </div>
+                <div class="col">
+                    <button
+                  type="button"
+                  class="btn btn-md btn-danger"
+                  (click)="deleteviewbookedevent(event.event_Id)"
+        
+                >
+                  Delete
+                </button>
+
+                </div>
+              
+                
+            </div><br>
+            </div><br><br>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="button" class="btn btn-primary btn-lg mr-4" routerLink="/user/invoice" routerLinkActive="active">
+                Invoice
+            </button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink="/user/feedback" routerLinkActive="active">
+                Feedback
+            </button></div></div>
+        
+        </section>
+          
+      
+    
+    
+    
+    
+
+
+    
+  
+
+  
+

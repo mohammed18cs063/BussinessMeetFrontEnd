@@ -1,0 +1,38 @@
+<app-user-header></app-user-header>
+<div class="album py-4"  style="background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1');">
+     
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let theme of userthemes">
+          <div class="card mb-4 box-shadow" style="opacity: 0.9;">
+            <a
+              [routerLink]="[theme.uthemeId]"
+              [queryParams]="{ allowEdit: theme.uthemeId > 0 ? '1' : '0' }"
+            >
+              <img
+                class="card-img-top"
+                [alt]="theme.uthemeName"
+                style="height: 225px; width: 100%; display: block"
+                [src]="theme.uthemeimageUrl"></a>
+            <div class="card-body">
+              <h4 class="card-title">{{ theme.uthemeName }}</h4>
+              <p class="card-text">
+                {{ theme.uthemeDescription }}
+              </p>
+              <h5>Price:{{ theme.uthemeCost | currency: "INR" }}</h5>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" routerLink="/user/book-event"
+                  routerLinkActive="active" class="btn btn-sm btn-outline-secondary" >
+                    Book
+                  </button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

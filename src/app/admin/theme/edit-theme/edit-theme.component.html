@@ -1,0 +1,81 @@
+<section class="sec">
+<div class="container">
+    <div class="card mb-4 box-shadow" style="background-color:black ;opacity: 0.75;"><br>
+        <div class="text-center"><h3>EDIT THEME</h3></div><br>
+        <form  [formGroup]="edittheme"  (ngSubmit)="update()">
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="form-group m-3">
+            <label for="themeName">Theme Name:</label>
+            <input type="text" name="themeName" id="themeName" class="form-control">
+            <div *ngIf="edittheme.get('themeName').invalid && edittheme.controls.themeName.touched "
+                               class="form-group" class="alert alert-danger">
+                              <span class="text-danger" *ngIf="edittheme.get('themeName').hasError('required')">theme Name is Required !</span>
+                              <span class="text-danger" *ngIf="edittheme.get('themeName').hasError('pattern')">Invalid  theme Name!</span>
+                               </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="themeimageUrl">Theme Image Url:</label>
+            <input type="text" name="themeimageUrl" id="themeimageUrl" class="form-control">
+            <div *ngIf="edittheme.get('themeimageUrl').invalid && edittheme.controls.imageUrl.touched " class="form-group" class="alert alert-danger">
+                <span style="color: red;" *ngIf="edittheme.get('themeimageUrl').hasError('required')">ImageUrl is Required !</span>
+            </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="themeCost">Cost:</label>
+            <input  type="number" min="0" name="themeCost" id="themeCost" class="form-control">
+            <div *ngIf="edittheme.get('themeCost').invalid && edittheme.controls.themeCost.touched "
+                      class="form-group" class="alert alert-danger">
+                      <span style="color: red;" *ngIf="edittheme.get('themeCost').hasError('required')">theme cost  is Required !</span>
+                      <span style="color: red;" *ngIf="edittheme.get('themeCost').hasError('pattern')">invalid theme cost !</span>
+          
+                  </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="photographerDetails">Photographer Details:</label>
+            <input type="text" name="photographerDetails" id="photographerDetails" class="form-control">
+            <div *ngIf="edittheme.get('photographerDetails').invalid && edittheme.controls.photographerDetails.touched "
+                                class="form-group" class="alert alert-danger">
+                              <span style="color: red;" *ngIf="edittheme.get('photographerDetails').hasError('required')">photographer Details is Required !</span>
+                              <span style="color: red;" *ngIf="edittheme.get('photographerDetails').hasError('pattern')">Invalid  photographerDetails!</span>
+                               </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="videographerDetails">Videographer Details:</label>
+            <input type="text" name="videographerDetails" id="videographerDetails" class="form-control">
+            <div *ngIf="edittheme.get('videographerDetails').invalid && edittheme.controls.videographerDetails.touched "
+            class="form-group" class="alert alert-danger">
+            <span style="color: red;" *ngIf="edittheme.get('videographerDetails').hasError('required')">videographer Details  is Required !</span>
+            <span style="color: red;" *ngIf="edittheme.get('videographerDetails').hasError('pattern')">Invalid videographer Details  !</span>
+            </div> 
+        </div>
+        <div class="form-group m-3">
+            <label for="gift">Gift:</label>
+            <input type="text" name="gift" id="gift" class="form-control">
+            <div *ngIf="edittheme.get('returnGift').invalid && edittheme.controls.returnGift.touched "
+                      class="form-group" class="alert alert-danger">
+                      <span style="color: red;" *ngIf="edittheme.get('gift').hasError('required')">Gift Details  is Required !</span>
+                      <span style="color: red;" *ngIf="edittheme.get('gift').hasError('pattern')">Invalid returnGift Details!</span>
+          
+                    </div>
+        </div>
+        <div class="form-group m-3">
+            <label for="themeDescription">Theme Description:</label>
+            <input  type="text" name="themeDescription" id="themeDescription" class="form-control">
+            <div *ngIf="edittheme.get('themeDiscription').invalid && edittheme.controls.themeDiscription.touched "
+            class="form-group" class="alert alert-danger">
+            <span style="color: red;" *ngIf="edittheme.get('themeDiscription').hasError('required')">Theme Discription Details  is Required !</span>
+            <span style="color: red;" *ngIf="edittheme.get('themeDiscription').hasError('pattern')">invalid Theme Discription Details!</span>
+            </div>
+        </div >
+        <div class="text-center mt-4 mb-5">
+              
+            <button [disabled]="edittheme.invalid" style="border-radius: 15px; width:200px" class="btn btn-primary ">update</button>
+            <button class="form-control" type="button" style="border-radius: 15px; width:200px" class="btn btn-success " routerLink="/viewtheme">Back</button>
+          </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>

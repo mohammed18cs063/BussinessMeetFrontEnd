@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4 box-shadow">
+                <img
+              class="card-img-top"
+              [alt]="foodMenu.menuName"
+              style="height: 500px; width: 100%; display: block"
+              [src]="foodMenu.menuImageUrl">
+                <div class="card-body"> 
+                    <div class="d-flex justify-content-between">
+                        <h1 class="card-title text-uppercase">{{ foodMenu.menuName }}</h1>
+                        <h1>Price:{{ foodMenu.menuPrice | currency: "INR" }}</h1>
+                    </div>
+                    <p class="fs-4">Item category {{foodMenu.itemCategory}}</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button type="button" class="btn btn-primary btn-lg" (click)="updateFoodMenu(foodMenu.menuId)">
+                            Edit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-lg" (click)="deleteFoodMenu(foodMenu.menuId)">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

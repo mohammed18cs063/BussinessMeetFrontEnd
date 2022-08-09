@@ -1,0 +1,36 @@
+.container{
+    padding: 1rem;
+   
+    
+}
+form{
+    box-sizing: border-box;
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: black;
+    opacity: 0.75;
+
+}
+button{
+    white-space: nowrap;
+    margin-top: 0rem;
+    margin-left: 15rem;
+    padding: 5px 5px;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 15px;
+    float: center;
+}
+.sec{
+    background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1') ;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+h4{
+    text-align: center;
+    color: white;
+}
+strong{
+    color:white;
+}
+

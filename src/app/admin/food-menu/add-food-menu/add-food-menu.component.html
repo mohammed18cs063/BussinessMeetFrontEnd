@@ -1,0 +1,37 @@
+<section class="sec">
+<div class="container ">
+   <br>
+    <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br><br><br>
+        <div class="text-center"><h3>ADD FOOD MENU</h3></div><br>
+        <form >
+<div class="row">
+    <div class="col-md-10 mx-auto">
+        <div class="form-group m-3">
+            <label for="menuId">Item Id:</label>
+            <input [(ngModel)]="menuId" type="number" name="menuId" id="menuId" class="form-control">
+        </div>
+        <div class="form-group m-3">
+            <label for="menuName">Item Name:</label>
+            <input [(ngModel)]="menuName" type="text" name="menuName" id="menuName" class="form-control">
+        </div>
+        <div class="form-group m-3">
+            <label for="menuimageUrl">Item Image Url:</label>
+            <input [(ngModel)]="menuImageUrl" type="text" name="menuimageUrl" id="menuimageUrl" class="form-control">
+        </div> 
+        <div class="form-group m-3">
+            <label for="menuCost">Price</label>
+            <input [(ngModel)]="menuPrice" type="number" min="0" name="menuCost" id="menuCost" class="form-control">
+        </div>
+        <div class="form-group m-3">
+            <label for="itemCategory">Item Category:</label>
+            <input [(ngModel)]="itemCategory" type="text" name="itemCategory" id="itemCategory" class="form-control">
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
+        <button type="button" class="btn btn-primary btn-lg"  (click)="goToGetFoodMenu()">Add</button>
+    </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</section>

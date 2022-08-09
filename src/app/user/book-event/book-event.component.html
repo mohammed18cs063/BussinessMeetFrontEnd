@@ -1,0 +1,259 @@
+<app-user-header></app-user-header>
+<section class="sec">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="eventform">
+              <h4>BOOK EVENT</h4><br>
+                <div class="form-row">
+                     <div class="col-md-6">
+                      <input type="text"
+                       class="form-control" 
+                       formControlName="eventName"
+                       placeholder="Name: Product Meeting"
+                       [ngClass]="{ 'is-invalid': (submitted && f['eventName'].errors)||(f['eventName'].touched && f['eventName'].errors) }">
+                       <div
+                       *ngIf="(submitted && f['eventName'].errors)||(f['eventName'].touched && f['eventName'].errors) "
+                       class="invalid-feedback"
+                     >
+                       <div *ngIf="f['eventName'].errors['required']" >
+                         Meeting Name is required
+                       </div>
+                     </div>
+                     </div>
+                     <div class="col-md-6">
+                      <input type="text" 
+                      class="form-control" 
+                      placeholder="Address: Coimbatore"
+                      formControlName="eventAddress"
+                      [ngClass]="{ 'is-invalid':  (submitted && f['eventAddress'].errors)||(f['eventAddress'].touched && f['eventAddress'].errors) }">
+                      <div
+                      *ngIf="(submitted && f['eventAddress'].errors)||(f['eventAddress'].touched && f['eventAddress'].errors)"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['eventAddress'].errors['required']" >
+                        Address is required
+                      </div>
+                    </div>
+                    </div>
+                 </div><br>
+
+
+                 <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="text"
+                      class="form-control" 
+                      placeholder="Enter Applicant Name"
+                      formControlName="applicantName"
+                      [ngClass]="{ 'is-invalid':(submitted && f['applicantName'].errors)||(f['applicantName'].touched && f['applicantName'].errors) }">
+                      <div
+                      *ngIf="(submitted && f['applicantName'].errors)||(f['applicantName'].touched && f['applicantName'].errors)"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['applicantName'].errors['required']" >
+                        Applicant Name is required
+                      </div>
+                    </div>
+                   
+                    </div>
+                    <div class="col-md-6">
+                     <input type="date" 
+                     class="form-control" 
+                     placeholder="Enter Date of the event"
+                     formControlName="eventDate"
+                     [ngClass]="{ 'is-invalid': (submitted && f['eventDate'].errors)||(f['eventDate'].touched && f['eventDate'].errors) }">
+                     <div
+                     *ngIf="(submitted && f['eventDate'].errors)||(f['eventDate'].touched && f['eventDate'].errors)"
+                     class="invalid-feedback"
+                   >
+                     <div *ngIf="f['eventDate'].errors['required']" >
+                       Date is required
+                     </div>
+                   </div>
+                   </div>
+
+                </div><br>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="text" 
+                     class="form-control" 
+                     placeholder="Enter Applicant Address"
+                     formControlName="applicantAddress"
+                     [ngClass]="{ 'is-invalid': (submitted && f['applicantAddress'].errors)||(f['applicantAddress'].touched && f['applicantAddress'].errors) }">
+                     <div
+                *ngIf="(submitted && f['applicantAddress'].errors)||(f['applicantAddress'].touched && f['applicantAddress'].errors)"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['applicantAddress'].errors['required']" >
+                  Applicant Address is required
+                </div>
+              </div>
+                    </div>
+                    <div class="col-md-6">
+                     <input type="string"
+                      class="form-control" 
+                      placeholder="Enter the time of the event"
+                      formControlName="eventTime"
+                      [ngClass]="{ 'is-invalid':  (submitted && f['eventTime'].errors)||(f['eventTime'].touched && f['eventTime'].errors) }">
+                      <div
+                      *ngIf="(submitted && f['eventTime'].errors)||(f['eventTime'].touched && f['eventTime'].errors)"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['eventTime'].errors['required']" >
+                        Time is required
+                      </div>
+                    </div>
+                   </div>
+                </div><br>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="text" 
+                     class="form-control" 
+                     placeholder="Enter Applicant Mobile Number"
+                     formControlName="applicantMobileNo"
+                     (keypress)="keyPressNumbers($event)"
+                     [ngClass]="{ 'is-invalid': (submitted && f['applicantMobileNo'].errors)||(f['applicantMobileNo'].touched && f['applicantMobileNo'].errors)}">
+                      <div
+                    *ngIf="(submitted && f['applicantMobileNo'].errors)||(f['applicantMobileNo'].touched && f['applicantMobileNo'].errors)"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['applicantMobileNo'].errors['required']" >
+                      Applicant Mobile Number is required
+                    </div>
+                    <div *ngIf="f['applicantMobileNo'].errors['pattern']">
+                      Mobile number is not 10 digit
+                    </div>
+                  </div>
+                    </div>
+                    <div class="col-md-6">
+                     <input type="text" 
+                     class="form-control" 
+                     placeholder="Enter Number of people"
+                     formControlName="noOfPeople"
+                     (keypress)="keyPressNumbers($event)"
+                      [ngClass]="{ 'is-invalid': (submitted && f['noOfPeople'].errors)||(f['noOfPeople'].touched && f['noOfPeople'].errors)}">
+                      <div
+                *ngIf="(submitted && f['noOfPeople'].errors)||(f['noOfPeople'].touched && f['noOfPeople'].errors)"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['noOfPeople'].errors['required']" >
+                  Number of people required
+                </div>
+              </div>
+                   </div>
+                </div><br>
+                
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="email" 
+                     class="form-control" 
+                     placeholder="Enter Applicant email ID"
+                     formControlName="applicantEmail"
+                     [ngClass]="{ 'is-invalid': (submitted && f['applicantEmail'].errors)||(f['applicantEmail'].touched && f['applicantEmail'].errors) }">
+                     <div
+                      *ngIf="(submitted && f['applicantEmail'].errors)||(f['applicantEmail'].touched && f['applicantEmail'].errors)"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f['applicantEmail'].errors['required']" >
+                        Applicant Email is required
+                      </div>
+                    </div>
+                    </div>
+                </div><br>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <strong> Food Type </strong>
+                    </div>
+                    <div class="col-md-6">
+                     <strong>Select Add Ons</strong>
+                   </div>
+                </div><br>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <select class="form-control" id="selectFoodCategory" formControlName="selectFoodCategory"
+                        [ngClass]="{ 'is-invalid': (submitted && f['selectFoodCategory'].errors)||(f['selectFoodCategory'].touched && f['selectFoodCategory'].errors) }"  >
+                            <option value="" id="selectFoodCategory" disabled selected hidden>
+                                Select the Category
+                                </option>
+                                <option>     Veg     </option>
+                                <option>    Non-Veg  </option>
+                                
+
+                          </select>
+                          <div  *ngIf="(submitted && f['selectFoodCategory'].errors)||(f['selectFoodCategory'].touched && f['selectFoodCategory'].errors)"
+                     class="invalid-feedback">
+                <div *ngIf="f['selectFoodCategory'].errors['required']">
+                  Category is required
+                </div>
+              </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" id="selectAddonCategory" formControlName="selectAddOnsCategory"
+                        [ngClass]="{ 'is-invalid': (submitted && f['selectAddOnsCategory'].errors)||(f['selectAddOnsCategory'].touched && f['selectAddOnsCategory'].errors)  }">
+                            <option value="" id="selectAddonCategory" disabled selected hidden>
+                                Select the Category
+                                </option>
+                                <option> Talent Show </option>
+                                <option> StandUp Comedy </option>
+                                <option> Puzzle </option>
+                                <option> Book Fair </option>
+                          </select>
+                          <div class="invalid-feedback" 
+                    *ngIf="(submitted && f['selectAddOnsCategory'].errors)||(f['selectAddOnsCategory'].touched && f['selectAddOnsCategory'].errors)  ">
+                    <div *ngIf="f['selectAddOnsCategory'].errors['required']">
+                      Access Name is required
+                    </div>
+                  </div>
+                    </div>
+                </div><br>
+              
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="number" 
+                     class="form-control" 
+                     placeholder="Enter quantity of Veg items"
+                     formControlName="quantityOfVeg"
+                     [ngClass]="{ 'is-invalid': (submitted && f['quantityOfVeg'].errors)||(f['quantityOfVeg'].touched && f['quantityOfVeg'].errors)}">
+                     <div
+                     *ngIf="(submitted && f['quantityOfVeg'].errors)||(f['quantityOfVeg'].touched && f['quantityOfVeg'].errors)"
+                     class="invalid-feedback"
+                   >
+                     <div *ngIf="f['quantityOfVeg'].errors['required']" >
+                       quantity of Veg is required
+                     </div>
+                   </div>
+                    </div>
+                   
+                </div><br>
+
+                <div class="form-row">
+                    <div class="col-md-6">
+                     <input type="number"
+                      class="form-control" 
+                      placeholder="Enter quantity of Non Veg items"
+                      formControlName="quantityOfNonVeg"
+                      [ngClass]="{ 'is-invalid': (submitted && f['quantityOfNonVeg'].errors)||(f['quantityOfNonVeg'].touched && f['quantityOfNonVeg'].errors)}">
+                      <div
+        *ngIf="(submitted && f['quantityOfNonVeg'].errors)||(f['quantityOfNonVeg'].touched && f['quantityOfNonVeg'].errors)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f['quantityOfNonVeg'].errors['required']" >
+          quantity of Non-Veg is required
+        </div>
+      </div>
+                    </div>
+                    
+                    <button   (click)="goToViewBookedEvent()"[disabled]="eventform.invalid" type="button" class="btn btn-primary ">Book Event</button>
+                </div><br>
+                   
+                  
+            </form>
+        </div>
+    </div>
+</div>
+</section>
