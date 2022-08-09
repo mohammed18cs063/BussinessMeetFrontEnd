@@ -33,7 +33,7 @@ this.themeService.deleteUser(themeid).subscribe(data=>{
 })
 }
 updateUser(themeid: number){
-this.router.navigate(['updatetheme',themeid])
+this.router.navigate(['admin/editTheme',themeid])
 }
 goToAddTheme(){
   this.router.navigate(['admin/addtheme']);

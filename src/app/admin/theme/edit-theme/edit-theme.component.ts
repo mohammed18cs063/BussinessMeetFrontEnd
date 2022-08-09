@@ -59,6 +59,6 @@ forms()
   }
   goToUserList(){
     alert("updated successfully");
-    this.router.navigate(['/viewtheme']);
+    this.router.navigate(['admin/themes']);
   }
 }

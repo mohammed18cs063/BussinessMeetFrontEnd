@@ -48,7 +48,7 @@ export class EditFoodMenuComponent implements OnInit {
     this.activatedRoute.params.subscribe((params:Params)=>{
       let menuId=+params['id'];      
       this.foodMenuService.updateFoodMenu(menuId,menuInfo);
-      this.router.navigate(['admin/FoodMenu']);
+      this.router.navigate(['admin/foodMenus']);
     });
   }
 }

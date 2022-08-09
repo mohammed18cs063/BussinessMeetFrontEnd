@@ -19,7 +19,7 @@ export class DeleteFoodMenuComponent implements OnInit {
   }
 
   goToGetFoodMenu(){
-    this.router.navigate(['admin/FoodMenu']);
+    this.router.navigate(['admin/foodMenus']);
   }
 
 }

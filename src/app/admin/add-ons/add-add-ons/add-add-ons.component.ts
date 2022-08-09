@@ -19,7 +19,7 @@ export class AddAddOnsComponent implements OnInit {
   ngOnInit(): void {
   }
   goToGetAddOns(){
-    this.router.navigate(['admin/Addon']);
+    this.router.navigate(['admin/addons']);
   }
 
 }

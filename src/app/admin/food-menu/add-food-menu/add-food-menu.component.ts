@@ -20,7 +20,7 @@ export class AddFoodMenuComponent implements OnInit {
   ngOnInit(): void {
   }
   goToGetFoodMenu(){
-    this.router.navigate(['admin/FoodMenu']);
+    this.router.navigate(['admin/foodMenus']);
   }
 
 }

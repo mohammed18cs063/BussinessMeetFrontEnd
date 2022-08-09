@@ -38,7 +38,7 @@ export class AddThemeComponent implements OnInit {
       alert("Theme Added Successfully")
    
     this.Addstheme.reset();
-    this.router.navigate(['/viewtheme']);
+    this.router.navigate(['admin/themes']);
   },error=>alert("Theme Already exists"));
     }
 

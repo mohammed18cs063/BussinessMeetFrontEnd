@@ -19,7 +19,7 @@ export class DeleteAddOnsComponent implements OnInit {
   }
 
   goToGetAddOns(){
-    this.router.navigate(['admin/Addon']);
+    this.router.navigate(['admin/addons']);
   }
 
 }

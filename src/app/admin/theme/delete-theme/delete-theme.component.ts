@@ -19,7 +19,7 @@ export class DeleteThemeComponent implements OnInit {
   }
 
   goToGetThemes(){
-    this.router.navigate(['admin/theme']);
+    this.router.navigate(['admin/themes']);
   }
 
 }

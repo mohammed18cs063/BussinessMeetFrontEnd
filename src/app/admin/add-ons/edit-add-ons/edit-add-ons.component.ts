@@ -42,7 +42,7 @@ export class EditAddOnsComponent implements OnInit {
     this.activatedRoute.params.subscribe((params:Params)=>{
       let addOnId=+params['id'];      
       this.addOnService.updateAddOn(addOnId,addOnInfo);
-      this.router.navigate(['admin/Addon']);
+      this.router.navigate(['admin/addons']);
     });
   }
 
