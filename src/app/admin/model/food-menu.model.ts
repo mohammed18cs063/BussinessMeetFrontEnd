@@ -1,4 +1,4 @@
-export interface FoodMenuModel{
+export class FoodMenuModel{
     menuId:number;
     menuName:string;
     menuImageUrl:string;

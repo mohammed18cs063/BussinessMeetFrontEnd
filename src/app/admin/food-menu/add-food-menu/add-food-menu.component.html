@@ -1,37 +1,52 @@
 <section class="sec">
-<div class="container ">
-   <br>
-    <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br><br><br>
-        <div class="text-center"><h3>ADD FOOD MENU</h3></div><br>
-        <form >
-<div class="row">
-    <div class="col-md-10 mx-auto">
-        <div class="form-group m-3">
-            <label for="menuId">Item Id:</label>
-            <input [(ngModel)]="menuId" type="number" name="menuId" id="menuId" class="form-control">
+    <div class="container ">
+       <br>
+        <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br><br><br>
+            <div class="text-center"><h3>ADD FOOD MENU</h3></div><br>
+            <form [formGroup]="Addsfoodmenu"  (ngSubmit)="AddFoodMenu()" >
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="form-group m-3">
+                <label for="menuName">Item Name:</label>
+                <input type="text" name="menuName" id="menuName" class="form-control">
+                <div *ngIf="Addsfoodmenu.get('menuName').invalid && Addsfoodmenu.controls.menuName.touched "
+               class="form-group" class="alert alert-danger">
+              <span class="text-danger" *ngIf="Addsfoodmenu.get('menuName').hasError('required')">Item Name is Required !</span>
+              <span class="text-danger" *ngIf="Addsfoodmenu.get('menuName').hasError('pattern')">Invalid  Food Name!</span>
+               </div> 
+            </div>
+            <div class="form-group m-3">
+                <label for="menuimageUrl">Item Image Url:</label>
+                <input [type="text" name="menuImageUrl" id="menuimageUrl" class="form-control">
+                <div *ngIf="Addsfoodmenu.get('menuImageUrl').invalid && Addsfoodmenu.controls.imageurl.touched "
+             class="form-group" class="alert alert-danger">
+            <span class="text-danger" *ngIf="Addsfoodmenu.get('menuImageUrl').hasError('required')">Imageurl is Required !</span>
+            
+             </div>
+            </div> 
+            <div class="form-group m-3">
+                <label for="menuCost">Price</label>
+                <input  type="number" min="0" name="menuCost" id="menuCost" class="form-control">
+                <div *ngIf="Addsfoodmenu.get('menuPrice').invalid && Addsfoodmenu.controls.price.touched "
+           class="form-group" class="alert alert-danger">
+          <span class="text-danger" *ngIf="Addsfoodmenu.get('menuPrice').hasError('required')">Food Price is Required !</span>
+          <span class="text-danger" *ngIf="Addsfoodmenu.get('menuPrice').hasError('pattern')">Invalid  Food Name!</span>
+           </div>
+            </div>
+            <div class="form-group m-3">
+                <label for="itemCategory">Item Category:</label>
+                <input type="text" name="itemCategory" id="itemCategory" class="form-control">
+                <div *ngIf="Addsfoodmenu.get('itemCategory').invalid && Addsfoodmenu.controls.category.touched "
+           class="form-group" class="alert alert-danger">
+          <span class="text-danger" *ngIf="Addsfoodmenu.get('itemCategory').hasError('required')">Item Category is Required !</span>
+           </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
+            <button type="button" class="btn btn-primary btn-lg" [disabled]="Addsfoodmenu.invalid">Add</button>
         </div>
-        <div class="form-group m-3">
-            <label for="menuName">Item Name:</label>
-            <input [(ngModel)]="menuName" type="text" name="menuName" id="menuName" class="form-control">
-        </div>
-        <div class="form-group m-3">
-            <label for="menuimageUrl">Item Image Url:</label>
-            <input [(ngModel)]="menuImageUrl" type="text" name="menuimageUrl" id="menuimageUrl" class="form-control">
-        </div> 
-        <div class="form-group m-3">
-            <label for="menuCost">Price</label>
-            <input [(ngModel)]="menuPrice" type="number" min="0" name="menuCost" id="menuCost" class="form-control">
-        </div>
-        <div class="form-group m-3">
-            <label for="itemCategory">Item Category:</label>
-            <input [(ngModel)]="itemCategory" type="text" name="itemCategory" id="itemCategory" class="form-control">
-        </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-        <button type="button" class="btn btn-primary btn-lg"  (click)="goToGetFoodMenu()">Add</button>
     </div>
-</div>
-</div>
-</form>
-</div>
-</div>
-</section>
+    </div>
+    </form>
+    </div>
+    </div>
+    </section>
