@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ThemeService } from 'src/app/admin/service/theme.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Addtheme } from '../add-theme/addtheme';
+import { ThemeModel } from '../../model/theme.model';
 
 @Component({
   selector: 'app-edit-theme',
@@ -11,7 +11,7 @@ import { Addtheme } from '../add-theme/addtheme';
 })
 export class EditThemeComponent implements OnInit {
   themeid!: number;
-  user: Addtheme = new Addtheme();
+  user: ThemeModel = new ThemeModel();
   edittheme: any;
 
   constructor(private activatedRoute:ActivatedRoute,private themeService:ThemeService,private  router : Router,private formBuilder: FormBuilder) { }
@@ -34,7 +34,7 @@ export class EditThemeComponent implements OnInit {
     videographerDetails:[this.user.videographerDetails,[Validators.required,Validators.pattern("^[a-zA-Z0-9,;:/.&' ']*")]],
     gift:[this.user.gift,[Validators.required,Validators.pattern("^[a-zA-Z' '0-9]*")]],
     themeCost:[this.user.themeCost,[Validators.required,Validators.pattern("^[0-9]*")]],
-    themeDiscription:[this.user.themeDiscription,[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
+    themeDiscription:[this.user.themeDescription,[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
       
     })
   }
@@ -47,7 +47,7 @@ forms()
     videographerDetails:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9,;:/.&' ']*")]],
     gift:['',[Validators.required,Validators.pattern("^[a-zA-Z' '0-9]*")]],
     themeCost:['',[Validators.required,Validators.pattern("^[0-9]*")]],
-    themeDiscription:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
+    themeDescription:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
   })
 }
 

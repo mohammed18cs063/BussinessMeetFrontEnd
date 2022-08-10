@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" *ngFor="let foodMenu of FoodMenus">
             <div class="card mb-4 box-shadow">
                 <img
               class="card-img-top"
@@ -14,10 +14,10 @@
                     </div>
                     <p class="fs-4">Item category {{foodMenu.itemCategory}}</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <button type="button" class="btn btn-primary btn-lg" (click)="updateFoodMenu(foodMenu.menuId)">
+                        <button type="button" class="btn btn-primary btn-lg" (click)="updateUser(foodMenu.menuId)">
                             Edit
                         </button>
-                        <button type="button" class="btn btn-danger btn-lg" (click)="deleteFoodMenu(foodMenu.menuId)">
+                        <button type="button" class="btn btn-danger btn-lg" (click)="deleteUser(foodMenu.menuId)">
                             Delete
                         </button>
                     </div>

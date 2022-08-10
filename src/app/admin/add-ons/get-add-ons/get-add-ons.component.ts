@@ -9,23 +9,35 @@ import { AddonService } from 'src/app/admin/service/addon.service';
   styleUrls: ['./get-add-ons.component.css']
 })
 export class GetAddOnsComponent implements OnInit {
-
-  addOn:AddonModel;
-
+  addaddon:AddonModel=new AddonModel();
+  addons:AddonModel[];
   constructor(private activatedRoute:ActivatedRoute,private router:Router,private addOnService:AddonService) { }
 
-  ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params:Params)=>{
-      let addOnId=+params['id'];
-      this.addOn=this.addOnService.getAddOn(addOnId);
-    });
+  ngOnInit(): void {this.getAddons();}
+  public getAddons()
+  {
+   this.addOnService. getAddons().subscribe(data =>
+  {
+    this.addons=data;
+  })
   }
 
-  updateAddOn(id: number){
-    this.router.navigate(['/admin/editAddon', id]);
-  }
-  deleteAddOn(id: number){
-    this.router.navigate(['/admin/deleteAddon', id]);
-  }
+deleteAddon(addOnid:number){
+this.addOnService.deleteAddon(addOnid).subscribe(data=>{
+  console.log(data);
+  alert("deleted successfully");
+  this.getAddons();
+})
+}
+updateAddon(addOnid: number){
+this.router.navigate(['/admin/editAddon',addOnid])
+}
+
+  // updateAddOn(id: number){
+  //   this.router.navigate(['/admin/editAddon', id]);
+  // }
+  // deleteAddOn(id: number){
+  //   this.router.navigate(['/admin/deleteAddon', id]);
+  // }
 
 }

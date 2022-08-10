@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" *ngFor="let addOn of addons">
       <div class="card mb-4 box-shadow">
         <img
           class="card-img-top"
@@ -17,14 +17,14 @@
             <button
               type="button"
               class="btn btn-primary btn-lg"
-              (click)="updateAddOn(addOn.addOnId)"
+              (click)="updateAddon(addOn.addOnid)"
             >
               Edit
             </button>
             <button
               type="button"
               class="btn btn-danger btn-lg"
-              (click)="deleteAddOn(addOn.addOnId)"
+              (click)="deleteAddon(addOn.addOnid)"
             >
               Delete
             </button>

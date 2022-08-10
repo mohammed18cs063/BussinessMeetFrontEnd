@@ -33,14 +33,19 @@
           <span class="text-danger" *ngIf="Addsfoodmenu.get('menuPrice').hasError('pattern')">Invalid  Food Name!</span>
            </div>
             </div>
-            <div class="form-group m-3">
-                <label for="itemCategory">Item Category:</label>
-                <input type="text" name="itemCategory" id="itemCategory" class="form-control">
+            <div class="form-group">
+                <label class="font-weight-bold" for="itemCategory">Item Category:</label>
+                <select id="itemCategory" class="form-control"  style="border-radius: 15px; height: 45px;
+                width: 410px; ;" formControlName="itemCategory" aria-placeholder="Enter the Category" id="itemCategory">
+                  <option selected>Select the Category</option>
+                  <option>Veg</option>
+                  <option>Non Veg</option>
+                </select>
                 <div *ngIf="Addsfoodmenu.get('itemCategory').invalid && Addsfoodmenu.controls.category.touched "
            class="form-group" class="alert alert-danger">
           <span class="text-danger" *ngIf="Addsfoodmenu.get('itemCategory').hasError('required')">Item Category is Required !</span>
            </div>
-            </div>
+              </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
             <button type="button" class="btn btn-primary btn-lg" [disabled]="Addsfoodmenu.invalid">Add</button>
         </div>

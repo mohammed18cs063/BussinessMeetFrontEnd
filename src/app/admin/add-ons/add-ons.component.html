@@ -12,34 +12,34 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-4" *ngFor="let addOn of addOns">
+      <div class="col-md-4" *ngFor="let addon of addons">
         <div class="card mb-4 box-shadow">
           <a
-            [routerLink]="[addOn.addOnId]"
-            [queryParams]="{ allowEdit: addOn.addOnId > 0 ? '1' : '0' }"
+            [routerLink]="[addon.addOnid]"
+            [queryParams]="{ allowEdit: addon.addOnid > 0 ? '1' : '0' }"
           >
             <img
               class="card-img-top"
-              [alt]="addOn.addOnName"
+              [alt]="addon.addOnName"
               style="height: 225px; width: 100%; display: block"
-              [src]="addOn.addOnImageUrl"
+              [src]="addon.addOnImageUrl"
           /></a>
           <div class="card-body">
-            <h4 class="card-title">{{ addOn.addOnName }}</h4>
-            <h5>Price:{{ addOn.addOnPrice | currency: "INR" }}</h5>
+            <h4 class="card-title">{{ addon.addOnName }}</h4>
+            <h5>Price:{{ addon.addOnPrice | currency: "INR" }}</h5>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button
                   type="button"
                   class="btn btn-sm btn-outline-secondary"
-                  (click)="updateAddOn(addOn.addOnId)"
+                  (click)="updateAddon(addon.addOnid)"
                 >
                   Edit
                 </button>
                 <button
                   type="button"
                   class="btn btn-sm btn-outline-secondary"
-                  (click)="deleteAddOn(addOn.addOnId)"
+                  (click)="deleteAddon(addon.addOnid)"
                 >
                   Delete
                 </button>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Addtheme } from './addtheme';
+import { ThemeModel } from '../../model/theme.model';
 import { ThemeService } from 'src/app/admin/service/theme.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ThemeService } from 'src/app/admin/service/theme.service';
   styleUrls: ['./add-theme.component.css']
 })
 export class AddThemeComponent implements OnInit {
-  addmenu:Addtheme=new Addtheme();
+  addmenu:ThemeModel=new ThemeModel();
   //themes: Addtheme[];
   //formBuilder: any;
   Addstheme: any;

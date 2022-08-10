@@ -9,7 +9,6 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./add-food-menu.component.css']
 })
 export class AddFoodMenuComponent implements OnInit {
-  allowEdit:boolean;
   Addsfoodmenu: any;
   users!: FoodMenuModel[] ;
 

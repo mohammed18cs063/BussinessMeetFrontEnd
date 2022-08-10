@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ThemeModel } from '../../model/theme.model';
-import { Addtheme } from '../add-theme/addtheme';
 import { ThemeService } from 'src/app/admin/service/theme.service';
 
 @Component({
@@ -10,8 +9,8 @@ import { ThemeService } from 'src/app/admin/service/theme.service';
   styleUrls: ['./get-theme.component.css']
 })
 export class GetThemeComponent implements OnInit {
-  addmenu:Addtheme=new Addtheme();
-  themes:Addtheme[];
+  addmenu:ThemeModel=new ThemeModel();
+  themes:ThemeModel[];
 
   constructor(private activatedRoute:ActivatedRoute,private router:Router,private themeService:ThemeService) { }
 

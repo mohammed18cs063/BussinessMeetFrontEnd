@@ -1,5 +1,5 @@
-export interface ThemeModel{
-    themeId:number;
+export class ThemeModel{
+    themeid:number;
     themeName:string;
     themeimageUrl:string;
     themeCost:number;

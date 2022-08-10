@@ -30,7 +30,7 @@ import { FeedbackComponent } from './user/feedback/feedback.component';
 
 const routes: Routes = [
   {path:'admin',component:AdminComponent},
-  {path:'admin/themes',component:ThemeComponent},
+  {path:'admin/theme',component:ThemeComponent},
   {path:'admin/theme/:id',component:GetThemeComponent},
   {path:'admin/editTheme/:id',component:EditThemeComponent},
   {path:'admin/addTheme',component:AddThemeComponent},

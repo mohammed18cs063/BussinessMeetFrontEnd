@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ThemeModel } from '../model/theme.model';
-import { Addtheme } from '../theme/add-theme/addtheme';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,26 +9,26 @@ import { HttpClient } from '@angular/common/http';
 export class ThemeService {
   
   constructor(private httpClient: HttpClient) { }
-  Addingtheme(addtheme : Addtheme ) :Observable<Object>
+  Addingtheme(addtheme : ThemeModel ) :Observable<Object>
   {
     console.log(addtheme);
     
     return this.httpClient.post<any>(`http://localhost:8080/admin/theme/addTheme`,addtheme);
   }
 
-  getAllThemes(): Observable<Addtheme[]>
+  getAllThemes(): Observable<ThemeModel[]>
   {
-    return this.httpClient.get<Addtheme[]>(`http://localhost:8080/admin/theme/getThemes`);
+    return this.httpClient.get<ThemeModel[]>(`http://localhost:8080/admin/theme/getThemes`);
   }
 
   deleteUser(themeid:number): Observable<Object>{
     return this.httpClient.delete(`http://localhost:8080/admin/theme/deleteTheme/{id}/${themeid}`);
   }
-  getUserById(themeid:number):Observable<Addtheme>{
-    return this.httpClient.get<Addtheme>(`http://localhost:8080/admin/theme/getTheme/{id}`);
+  getUserById(themeid:number):Observable<ThemeModel>{
+    return this.httpClient.get<ThemeModel>(`http://localhost:8080/admin/theme/getTheme/{id}`);
   }
 
-  updateUser(themeid: number,user:Addtheme): Observable<Object>{
+  updateUser(themeid: number,user:ThemeModel): Observable<Object>{
     return this.httpClient.put(`http://localhost:8080/admin/theme/editTheme/{id}/${themeid}`,user);
   }
  

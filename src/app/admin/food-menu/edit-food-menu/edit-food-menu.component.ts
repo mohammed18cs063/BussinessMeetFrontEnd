@@ -11,7 +11,6 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./edit-food-menu.component.css']
 })
 export class EditFoodMenuComponent implements OnInit {
-  updatefood: any;
   id!: number;
   user: FoodMenuModel = new FoodMenuModel(); 
   editfoodmenu: any;
