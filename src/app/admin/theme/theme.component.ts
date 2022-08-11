@@ -9,7 +9,6 @@ import { ThemeService } from 'src/app/admin/service/theme.service';
   styleUrls: ['./theme.component.css']
 })
 export class ThemeComponent implements OnInit {
-  addmenu:ThemeModel=new ThemeModel();
   themes:ThemeModel[];
 
   constructor(private activatedRoute:ActivatedRoute,private router:Router,private themeService:ThemeService) { }

@@ -3,23 +3,23 @@
      
     <div class="container">
       <div class="row">
-        <div class="col-md-4" *ngFor="let theme of userthemes">
+        <div class="col-md-4" *ngFor="let theme of Uthemes">
           <div class="card mb-4 box-shadow" style="opacity: 0.9;">
             <a
-              [routerLink]="[theme.uthemeId]"
-              [queryParams]="{ allowEdit: theme.uthemeId > 0 ? '1' : '0' }"
+              [routerLink]="[theme.themeid]"
+              [queryParams]="{ allowEdit: theme.themeid > 0 ? '1' : '0' }"
             >
               <img
                 class="card-img-top"
-                [alt]="theme.uthemeName"
+                [alt]="theme.themeName"
                 style="height: 225px; width: 100%; display: block"
-                [src]="theme.uthemeimageUrl"></a>
+                [src]="theme.themeimageUrl"></a>
             <div class="card-body">
-              <h4 class="card-title">{{ theme.uthemeName }}</h4>
+              <h4 class="card-title">{{ theme.themeName }}</h4>
               <p class="card-text">
-                {{ theme.uthemeDescription }}
+                {{ theme.themeDescription }}
               </p>
-              <h5>Price:{{ theme.uthemeCost | currency: "INR" }}</h5>
+              <h5>Price:{{ theme.themeCost | currency: "INR" }}</h5>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" routerLink="/user/book-event"

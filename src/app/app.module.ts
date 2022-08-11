@@ -31,8 +31,6 @@ import { DeleteViewBookedEventComponent } from './user/view-booked-event/delete-
 import { EditViewBookedEventComponent } from './user/view-booked-event/edit-view-booked-event/edit-view-booked-event.component';
 import { GetViewBookedEventComponent } from './user/view-booked-event/get-view-booked-event/get-view-booked-event.component';
 import { UserThemeComponent } from './user/user-theme/user-theme.component';
-import { UserThemeService } from './user/user-theme/services/user-theme-service';
-import { UserThemeModel } from './user/user-theme/model/user-theme-model';
 import { InvoiceComponent } from './user/invoice/invoice.component';
 import { FeedbackComponent } from './user/feedback/feedback.component';
 

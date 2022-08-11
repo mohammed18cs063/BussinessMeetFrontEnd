@@ -13,23 +13,23 @@ export class ThemeService {
   {
     console.log(addtheme);
     
-    return this.httpClient.post<any>(`http://localhost:8080/admin/theme/addTheme`,addtheme);
+    return this.httpClient.post<any>(`http://localhost:8080/admin/addTheme`,addtheme);
   }
 
   getAllThemes(): Observable<ThemeModel[]>
   {
-    return this.httpClient.get<ThemeModel[]>(`http://localhost:8080/admin/theme/getThemes`);
+    return this.httpClient.get<ThemeModel[]>(`http://localhost:8080/admin/themes`);
   }
 
   deleteUser(themeid:number): Observable<Object>{
-    return this.httpClient.delete(`http://localhost:8080/admin/theme/deleteTheme/{id}/${themeid}`);
+    return this.httpClient.delete(`http://localhost:8080/admin/deleteTheme/${themeid}`);
   }
   getUserById(themeid:number):Observable<ThemeModel>{
-    return this.httpClient.get<ThemeModel>(`http://localhost:8080/admin/theme/getTheme/{id}`);
+    return this.httpClient.get<ThemeModel>(`http://localhost:8080/admin/theme/${themeid}`);
   }
 
   updateUser(themeid: number,user:ThemeModel): Observable<Object>{
-    return this.httpClient.put(`http://localhost:8080/admin/theme/editTheme/{id}/${themeid}`,user);
+    return this.httpClient.put(`http://localhost:8080/admin/editTheme/${themeid}`,user);
   }
  
  
