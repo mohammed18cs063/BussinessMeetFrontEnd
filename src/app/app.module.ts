@@ -33,6 +33,9 @@ import { GetViewBookedEventComponent } from './user/view-booked-event/get-view-b
 import { UserThemeComponent } from './user/user-theme/user-theme.component';
 import { InvoiceComponent } from './user/invoice/invoice.component';
 import { FeedbackComponent } from './user/feedback/feedback.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './security/auth.guard';
+import { AuthInterceptor } from './security/httpinterceptor';
 
 
 
@@ -75,9 +78,15 @@ import { FeedbackComponent } from './user/feedback/feedback.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers:  [AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

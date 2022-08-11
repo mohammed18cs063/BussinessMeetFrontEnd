@@ -11,61 +11,35 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
     
-      <form [formGroup]="loginForm" action="/" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="d-flex align-items-center mb-3 pb-1">
-          <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-          <span class="h1 fw-bold mb-0">B M Managemnen</span>
+          <em class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></em>
+          <span class="h1 fw-bold mb-0">B M Management</span>
         </div>
 
         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
           <div class="form-outline mb-4">
-           
-              <input type="email" id="form2Example17" class="form-control form-control-lg"
-                formControlName="email" 
-                [ngClass]="{ 'is-invalid': (submitted && f['email'].errors)||(f['email'].touched && f['email'].errors)  }"
+            <label class="form-label" for="form2Example17">emailId:</label>
+              <input type="emailId" id="form2Example17" class="form-control form-control-lg"
+                formControlName="emailId" 
+                [ngModel]="user.emailId"
               >
-              <label class="form-label" for="form2Example17">Email address</label>
-              <div 
-                *ngIf="(submitted && f['email'].errors)||(f['email'].touched && f['email'].errors)" 
-                class="invalid-feedback">
-                  <div *ngIf="f['email'].errors['required']">
-                    Email is required
-                  </div>
-                  <div *ngIf="f['email'].errors['email']">
-                    Email is invalid
-                  </div>
-              </div>
+              <span *ngIf="emailId && emailId.invalid && emailId.touched">Enter valid Email Id</span>
           </div>
           <div class="form-group">
-            
+            <label class="form-label" for="form2Example27">Password:</label>
               <input 
               input type="password" id="form2Example27" class="form-control form-control-lg" 
                 formControlName="password"
-                [ngClass]="{ 'is-invalid': (submitted && f['password'].errors)||(f['password'].touched && f['password'].errors)}"
+                [ngModel]="user.password"
               >
-              <label class="form-label" for="form2Example27">Password</label>
-              <div 
-                *ngIf="(submitted && f['password'].errors)||(f['password'].touched && f['password'].errors)" 
-                class="invalid-feedback">
-                  <div *ngIf="f['password'].errors['required']">
-                    Password is required
-                  </div>
-                  <div *ngIf="f['password'].errors['minlength']">
-                    Password must be at least 6 characters
-                  </div>
-                  <div *ngIf="f['password'].errors['maxlength']">
-                    Password must not exceed 40 characters
-                  </div>
-              </div>
+              <span *ngIf="password && password.invalid && password.touched">Enter valid Password</span>
           </div>
           <div class="form-group">
-              <a href="#"
-              routerLink="/admin" 
-              routerLinkActive="active" >
-              <button class="btn btn-primary btn-lg" [disabled]="loginForm.invalid"  id="loginButton">
+              <button class="btn btn-primary btn-lg" type="submit" [disabled]="loginForm.invalid"  id="loginButton">
                 Login
-              </button></a>
+              </button>
           </div><br/>
           <div>
               <label>

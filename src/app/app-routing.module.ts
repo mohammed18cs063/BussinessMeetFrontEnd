@@ -17,6 +17,7 @@ import { EditThemeComponent } from './admin/theme/edit-theme/edit-theme.componen
 import { GetThemeComponent } from './admin/theme/get-theme/get-theme.component';
 import { ThemeComponent } from './admin/theme/theme.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './security/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 import { BookEventComponent } from './user/book-event/book-event.component';
 import { InvoiceComponent } from './user/invoice/invoice.component';
@@ -26,36 +27,36 @@ import { DeleteViewBookedEventComponent } from './user/view-booked-event/delete-
 import { EditViewBookedEventComponent } from './user/view-booked-event/edit-view-booked-event/edit-view-booked-event.component';
 import { GetViewBookedEventComponent } from './user/view-booked-event/get-view-booked-event/get-view-booked-event.component';
 import { ViewBookedEventComponent } from './user/view-booked-event/view-booked-event.component';
-import { FeedbackComponent } from './user/feedback/feedback.component';
 
 const routes: Routes = [
-  {path:'admin',component:AdminComponent},
-  {path:'admin/theme',component:ThemeComponent},
-  {path:'admin/theme/:id',component:GetThemeComponent},
-  {path:'admin/edittheme/:id',component:EditThemeComponent},
-  {path:'admin/addtheme',component:AddThemeComponent},
-  {path:'admin/deletetheme/:id',component:DeleteThemeComponent},
-  {path:'admin/Addon',component:AddOnsComponent},
-  {path:'admin/Addon/:id',component:GetAddOnsComponent},
-  {path:'admin/editAddon/:id',component:EditAddOnsComponent},
-  {path:'admin/addAddon',component:AddAddOnsComponent},
-  {path:'admin/deleteAddon/:id',component:DeleteAddOnsComponent},
-  {path:'admin/FoodMenu',component:FoodMenuComponent},
-  {path:'admin/FoodMenu/:id',component:GetFoodMenuComponent},
-  {path:'admin/editFoodMenu/:id',component:EditFoodMenuComponent},
-  {path:'admin/addFoodMenu',component:AddFoodMenuComponent},
-  {path:'admin/deleteFoodMenu/:id',component:DeleteFoodMenuComponent},
+  {path:'',redirectTo:'user/user-theme', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'user',component:UserComponent},
-  {path:'user/book-event',component:BookEventComponent},
-  {path:'user/view-booked-event',component:ViewBookedEventComponent},
-  {path:'user/view-booked-event/:id',component:GetViewBookedEventComponent},
-  {path:'user/view-booked-event/edit-view-booked-event/:id',component:EditViewBookedEventComponent},
-  {path:'user/view-booked-event/delete-view-booked-event/:id',component:DeleteViewBookedEventComponent},
+  {path:'admin',canActivate : [AuthGuard],component:AdminComponent},
+  {path:'admin/theme',canActivate : [AuthGuard],component:ThemeComponent},
+  {path:'admin/theme/:id',canActivate : [AuthGuard],component:GetThemeComponent},
+  {path:'admin/edittheme/:id',canActivate : [AuthGuard],component:EditThemeComponent},
+  {path:'admin/addtheme',canActivate : [AuthGuard],component:AddThemeComponent},
+  {path:'admin/deletetheme/:id',canActivate : [AuthGuard],component:DeleteThemeComponent},
+  {path:'admin/Addon',canActivate : [AuthGuard],component:AddOnsComponent},
+  {path:'admin/Addon/:id',canActivate : [AuthGuard],component:GetAddOnsComponent},
+  {path:'admin/editAddon/:id',canActivate : [AuthGuard],component:EditAddOnsComponent},
+  {path:'admin/addAddon',canActivate : [AuthGuard],component:AddAddOnsComponent},
+  {path:'admin/deleteAddon/:id',canActivate : [AuthGuard],component:DeleteAddOnsComponent},
+  {path:'admin/FoodMenu',canActivate : [AuthGuard],component:FoodMenuComponent},
+  {path:'admin/FoodMenu/:id',canActivate : [AuthGuard],component:GetFoodMenuComponent},
+  {path:'admin/editFoodMenu/:id',canActivate : [AuthGuard],component:EditFoodMenuComponent},
+  {path:'admin/addFoodMenu',canActivate : [AuthGuard],component:AddFoodMenuComponent},
+  {path:'admin/deleteFoodMenu/:id',canActivate : [AuthGuard],component:DeleteFoodMenuComponent},
+  {path:'user',canActivate : [AuthGuard],component:UserComponent},
+  {path:'user/book-event',canActivate : [AuthGuard],component:BookEventComponent},
+  {path:'user/view-booked-event',canActivate : [AuthGuard],component:ViewBookedEventComponent},
+  {path:'user/view-booked-event/:id',canActivate : [AuthGuard],component:GetViewBookedEventComponent},
+  {path:'user/view-booked-event/edit-view-booked-event/:id',canActivate : [AuthGuard],component:EditViewBookedEventComponent},
+  {path:'user/view-booked-event/delete-view-booked-event/:id',canActivate : [AuthGuard],component:DeleteViewBookedEventComponent},
   {path:'user/user-theme',component:UserThemeComponent},
-  {path:'user/invoice',component:InvoiceComponent},
-  {path:'user/feedback',component:FeedbackComponent}
+  {path:'user/invoice',canActivate : [AuthGuard],component:InvoiceComponent},
+  {path:'**',redirectTo:"/login",pathMatch:'full'}//should be in last
 ];
 
 @NgModule({
