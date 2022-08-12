@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:'',redirectTo:'user/user-theme', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'admin',canActivate : [AuthGuard],component:AdminComponent},
+  {path:'admin',component:AdminComponent},
   {path:'admin/theme',canActivate : [AuthGuard],component:ThemeComponent},
   {path:'admin/theme/:id',canActivate : [AuthGuard],component:GetThemeComponent},
   {path:'admin/edittheme/:id',canActivate : [AuthGuard],component:EditThemeComponent},

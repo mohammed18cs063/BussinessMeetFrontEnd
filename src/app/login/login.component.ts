@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder,
-  AbstractControl,
+  FormGroup,FormControl,Validators,FormBuilder,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from '../model/login-model.model';
@@ -36,6 +32,7 @@ export class LoginComponent implements OnInit {
             console.log(response);
             sessionStorage.setItem('jwt', response.jwt);
             sessionStorage.setItem('emailId', this.user.emailId);
+            sessionStorage.setItem('password', this.user.password);
             this.gotoUser();
           } else {
             alert('Email id or Password is wrong');

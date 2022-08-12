@@ -63,7 +63,6 @@
         <div class="form-group m-3">
             <label for="themeDescription">Theme Description:</label>
             <input type="text" name="themeDescription" id="themeDescription" class="form-control">
-            <textarea style="height:145px ;width: 320px" class="form-control"  placeholder="Enter theme description" id="themeDiscription" formControlName="themeDiscription" ></textarea>
             <div *ngIf="Addstheme.get('themeDiscription').invalid && Addstheme.controls.themeDiscription.touched "
             class="form-group" class="alert alert-danger">
             <span style="color: red;" *ngIf="Addstheme.get('themeDiscription').hasError('required')">Theme Discription Details  is Required !</span>
