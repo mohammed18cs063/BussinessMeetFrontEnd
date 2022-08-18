@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AddonService } from '../../service/addon.service';
-import { AddonModel } from '../../model/add-on.model';
+import { AddonService } from '../../../services/addon.service';
+import { AddonModel } from '../../../model/add-on.model';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ThemeModel } from '../model/theme.model';
-import { ThemeService } from 'src/app/admin/service/theme.service';
+import { ThemeModel } from '../../model/theme.model';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-theme',

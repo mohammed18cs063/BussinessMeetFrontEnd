@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FeedbackModel } from './feedback.model';
-import { FeedbackService } from './feedback.service';
+import { FeedbackModel } from '../../model/feedback.model';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-feedback',

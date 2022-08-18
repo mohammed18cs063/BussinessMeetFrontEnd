@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AddonModel } from '../model/add-on.model';
-import { AddonService } from 'src/app/admin/service/addon.service';
+import { AddonModel } from '../../model/add-on.model';
+import { AddonService } from 'src/app/services/addon.service';
 
 @Component({
   selector: 'app-add-ons',

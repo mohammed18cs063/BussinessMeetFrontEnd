@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ThemeService } from 'src/app/admin/service/theme.service';
+import { ThemeService } from 'src/app/services/theme.service';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { ThemeModel } from '../../model/theme.model';
+import { ThemeModel } from '../../../model/theme.model';
 
 @Component({
   selector: 'app-edit-theme',

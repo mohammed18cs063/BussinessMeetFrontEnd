@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserloginService } from 'src/app/services/userlogin.service';
-import { FeedbackModel } from '../feedback/feedback.model';
-import { FeedbackService } from '../feedback/feedback.service';
+import { FeedbackModel } from '../../model/feedback.model';
+import { FeedbackService } from '../../services/feedback.service';
 
 @Component({
   selector: 'app-add-feedback',

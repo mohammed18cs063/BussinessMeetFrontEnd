@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./book-event.component.css']
 })
 export class BookEventComponent implements OnInit {
+  currentdate:any =new Date();
+
+  
   eventform:FormGroup=new FormGroup({
     eventName:new FormControl(''),
     eventAddress:new FormControl(''),

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FoodMenuService } from '../../service/food-menu.service';
-import { FoodMenuModel } from '../../model/food-menu.model';
+import { FoodMenuService } from '../../../services/food-menu.service';
+import { FoodMenuModel } from '../../../model/food-menu.model';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 

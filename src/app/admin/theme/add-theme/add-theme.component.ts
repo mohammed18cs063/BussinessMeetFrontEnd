@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { ThemeModel } from '../../model/theme.model';
-import { ThemeService } from 'src/app/admin/service/theme.service';
+import { ThemeModel } from '../../../model/theme.model';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-add-theme',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FeedbackModel } from 'src/app/user/feedback/feedback.model';
-import { FeedbackService } from 'src/app/user/feedback/feedback.service';
+import { FeedbackModel } from 'src/app/model/feedback.model';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-admin-feedback',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FeedbackModel } from './feedback.model';
+import { FeedbackModel } from '../model/feedback.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FoodMenuModel } from '../model/food-menu.model';
-import { FoodMenuService } from '../service/food-menu.service';
+import { FoodMenuModel } from '../../model/food-menu.model';
+import { FoodMenuService } from '../../services/food-menu.service';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
