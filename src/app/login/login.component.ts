@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,FormControl,Validators,FormBuilder,
-} from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { UserModel } from '../model/user-model.model';
 import { LoginModel } from '../model/login-model.model';
 import { UserloginService } from '../services/userlogin.service';
 
@@ -12,68 +11,73 @@ import { UserloginService } from '../services/userlogin.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  user: LoginModel = new LoginModel();
-  constructor(
-    private userloginService: UserloginService,
-    private router: Router,
-    private formBuilder: FormBuilder
-  ) {}
-  retriveUser() {
-    if (
-      this.user.emailId == 'admin@gmail.com' &&
-      this.user.password == 'admin@123'
-    ) {
-      sessionStorage.setItem('emailId', 'admin@gmail.com');
-      this.gotoAdmin();
-    } else {
-      this.userloginService.retriveUser(this.user).subscribe(
-        (response: any) => {
-          if (response) {
-            console.log(response);
-            sessionStorage.setItem('jwt', response.jwt);
-            sessionStorage.setItem('emailId', this.user.emailId);
-            sessionStorage.setItem('password', this.user.password);
-            this.gotoUser();
-          } else {
-            alert('Email id or Password is wrong');
-          }
-        },
-        (error) => console.log(error)
-      );
-    }
-  }
-  login() {
-    this.retriveUser();
-  }
-  loginForm: FormGroup = new FormGroup({
-    emailId: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required]),
-  });
+  public loginForm: any;
+  msg = '';
+  role: string = '';
+  user: UserModel;
+  submitted: boolean = false;
 
-  
+  constructor(
+    private loginService: UserloginService,
+    private _router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.forms();
+  }
+
   ngOnInit(): void {
     //
   }
-  // get f(): { [key: string]: AbstractControl } {
-  //   return this.loginForm.controls;
-  // }
-  //   onSubmit(): void {
-  //     this.submitted = true;
-  //     if (this.loginForm.invalid) {
-  //       return;
-  //     }
-  //     console.log(JSON.stringify(this.loginForm.value, null, 2));
-  // }
-  get emailId() {
-    return this.loginForm.get('emailId');
+
+  forms() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.minLength(8),
+          Validators.maxLength(16),
+          Validators.required,
+        ],
+      ],
+    });
   }
-  get password() {
-    return this.loginForm.get('password');
-  }
-  gotoUser() {
-    this.router.navigate(['/user']);
-  }
-  gotoAdmin() {
-    this.router.navigate(['/admin']);
+
+  userLogin() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      alert('Enter all details');
+      return;
+    }
+    console.log(this.loginForm.value);
+
+    this.loginService.LoginUser(this.loginForm.value).subscribe(
+      (response: any) => {
+        console.log(response, ' data ');
+        localStorage.setItem('usertype', response.user.usertype);
+        localStorage.setItem('jwt', response.jwt);
+        localStorage.setItem('id', response.user.id);
+
+        let user: LoginModel = {
+          name: response.user.name['name'],
+          usertype: response.user['usertype'],
+          id: response.user['id'],
+          email: response.user['email'],
+        };
+
+        this.loginService.SetUser(user);
+
+        if (response.user.usertype == 'user') {
+          this._router.navigate(['/user']);
+        } else {
+          this._router.navigate(['/admin']);
+        }
+      },
+      (error: { error: any }) => {
+        console.log(error.error);
+        this.msg = 'Invalid credentials';
+        alert('invalid credentials');
+      }
+    );
   }
 }

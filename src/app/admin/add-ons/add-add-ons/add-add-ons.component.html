@@ -1,88 +1,107 @@
 <section class="sec">
-  <div class="container ">
-     <br>
-      <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br><br><br>
-          <div class="text-center"><h3>ADD FOOD MENU</h3></div><br>
-          <form [formGroup]="Addsaddon"  (ngSubmit)="AddAddOn()" >
-  <div class="row">
-      <div class="col-md-10 mx-auto">
-          <div class="form-group m-3">
-              <label for="addOnName">AddOn Name:</label>
-              <input type="text" name="addOnName" id="addOnName" class="form-control">
-              <div *ngIf="Addsaddon.get('addOnName').invalid && Addsaddon.controls.menuName.touched "
-             class="form-group" class="alert alert-danger">
-            <span class="text-danger" *ngIf="Addsaddon.get('addOnName').hasError('required')">AddOn is Required !</span>
-            <span class="text-danger" *ngIf="Addsaddon.get('addOnName').hasError('pattern')">Invalid  AddOn!</span>
-             </div> 
-          </div>
-          <div class="form-group m-3">
-              <label for="addOnimageUrl">AddOn Image Url:</label>
-              <input [type="text" name="addOnimageUrl" id="addOnimageUrl" class="form-control">
-              <div *ngIf="Addsaddon.get('addOnimageUrl').invalid && Addsaddon.controls.imageurl.touched "
-           class="form-group" class="alert alert-danger">
-          <span class="text-danger" *ngIf="Addsaddon.get('addOnimageUrl').hasError('required')">AddOn Image Url is Required !</span>
-          
-           </div>
-          </div> 
-          <div class="form-group m-3">
-              <label for="addOnPrice">AddOn Price:</label>
-              <input  type="number" min="0" name="addOnPrice" id="addOnPrice" class="form-control">
-              <div *ngIf="Addsaddon.get('addOnPrice').invalid && Addsaddon.controls.price.touched "
-         class="form-group" class="alert alert-danger">
-        <span class="text-danger" *ngIf="Addsaddon.get('addOnPrice').hasError('required')">Food Price is Required !</span>
-        <span class="text-danger" *ngIf="Addsaddon.get('addOnPrice').hasError('pattern')">Invalid  Food Name!</span>
-         </div>
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-          <button type="button" class="btn btn-primary btn-lg" [disabled]="Addsaddon.invalid">Add</button>
-      </div>
-  </div>
-  </div>
-  </form>
-  </div>
-  </div>
-  </section>
-<!-- <section class="sec">
   <div class="container">
-      <br>
-      <div class="card mb-4 box-shadow" style="background-color:black; opacity: 0.75;"><br>
-      <div class="text-center"><h3>ADD ADD-ONS</h3></div><br>
-      <form  [formGroup]="Addsaddon"  (ngSubmit)="AddAddOn()" >
+    <br />
+    <div
+      class="card mb-4 box-shadow"
+      style="background-color: black; opacity: 0.75"
+    >
+      <br /><br /><br />
+      <div class="text-center"><h3>ADD ADD-ONS</h3></div>
+      <br />
+      <form [formGroup]="Addsaddon" (ngSubmit)="AddAddOn()">
         <div class="row">
           <div class="col-md-10 mx-auto">
             <div class="form-group m-3">
-              <label for="addOnName">AddOn Name:</label>
+              <label for="addonName">AddOn Name:</label>
               <input
                 type="text"
-                name="addOnName"
-                id="addOnName"
+                name="addonName"
+                id="addonName"
+                formControlName="addonName"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonName'].errors) ||
+                    (f['addonName'].touched && f['addonName'].errors)
+                }"
               />
+              <div
+                *ngIf="
+                  (submitted && f['addonName'].errors) ||
+                  (f['addonName'].touched && f['addonName'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonName'].errors['required']">
+                  AddOn Name is required
+                </div>
+                <div *ngIf="f['addonName'].errors['pattern']">
+                  AddOn Name is Invalid
+                </div>
+              </div>
             </div>
             <div class="form-group m-3">
-              <label for="addOnimageUrl">AddOn Image Url:</label>
+              <label for="addonimageUrl">AddOn Image Url:</label>
               <input
                 type="text"
-                name="addOnimageUrl"
-                id="addOnimageUrl"
+                name="addonimageUrl"
+                id="addonimageUrl"
+                formControlName="addonimageUrl"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonimageUrl'].errors) ||
+                    (f['addonimageUrl'].touched && f['addonimageUrl'].errors)
+                }"
               />
+              <div
+                *ngIf="
+                  (submitted && f['addonimageUrl'].errors) ||
+                  (f['addonimageUrl'].touched && f['addonimageUrl'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonimageUrl'].errors['required']">
+                  Image Url is required
+                </div>
+              </div>
             </div>
             <div class="form-group m-3">
-              <label for="addOnPrice">AddOn Price:</label>
+              <label for="addonPrice">AddOn Price:</label>
               <input
                 type="number"
                 min="0"
-                name="addOnPrice"
-                id="addOnPrice"
+                (keypress)="keyPressNumbers($event)"
+                name="addonPrice"
+                id="addonPrice"
+                formControlName="addonPrice"
                 class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonPrice'].errors) ||
+                    (f['addonPrice'].touched && f['addonPrice'].errors)
+                }"
               />
+              <div
+                *ngIf="
+                  (submitted && f['addonPrice'].errors) ||
+                  (f['addonPrice'].touched && f['addonPrice'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonPrice'].errors['required']">
+                  AddOn Price is required
+                </div>
+                <div *ngIf="f['addonPrice'].errors['pattern']">
+                  AddOn Price is Invalid
+                </div>
+              </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
               <button
-                type="button"
+                type="submit"
                 class="btn btn-primary btn-lg"
-                (click)="goToGetAddOns()"
+                [disabled]="Addsaddon.invalid"
               >
                 Add
               </button>
@@ -90,6 +109,6 @@
           </div>
         </div>
       </form>
-      </div>
     </div>
-  </section> -->
+  </div>
+</section>

@@ -21,7 +21,6 @@ export class UserThemeComponent implements OnInit {
     this.themeService.getAllThemes().subscribe(data =>
       {
         this.Uthemes=data;
-       // console.log(data);
       })
   }
   

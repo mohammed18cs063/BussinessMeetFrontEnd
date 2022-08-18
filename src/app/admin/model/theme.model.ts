@@ -1,10 +1,7 @@
 export class ThemeModel{
-    themeid:number;
+    id:number;
     themeName:string;
-    themeimageUrl:string;
+    themeImageUrl:string;
     themeCost:number;
-    photographerDetails:string;
-    videographerDetails:string;
-    gift:string;
-    themeDescription:string
+    themeDescription:string;
 }

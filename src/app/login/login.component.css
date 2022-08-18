@@ -1,23 +1,22 @@
-.container{
-    padding-bottom: 9rem;
+.container {
+  padding-bottom: 9rem;
 }
 .card h1,
-h1{
-    color:black;
-    
+h1 {
+  color: black;
 }
 
-label{
-    color:black;
+label {
+  color: black;
 }
-.sec{
-        background-image:url('https://img.freepik.com/free-photo/event-managers-showing-something-laptop-couple_23-2148085253.jpg?w=996&t=st=1659715787~exp=1659716387~hmac=e54c302ef944eb4760551cbfaf40f9ad9ae629c5f7d4132e2837082bfd9a8e5e');
-        background-size: cover;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+.sec {
+  background-image: url("https://img.freepik.com/free-photo/event-managers-showing-something-laptop-couple_23-2148085253.jpg?w=996&t=st=1659715787~exp=1659716387~hmac=e54c302ef944eb4760551cbfaf40f9ad9ae629c5f7d4132e2837082bfd9a8e5e");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 1px; /* Added */
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 1px; /* Added */
 }

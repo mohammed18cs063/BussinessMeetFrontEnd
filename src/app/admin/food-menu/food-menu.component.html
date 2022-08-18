@@ -1,43 +1,60 @@
-<app-admin-header></app-admin-header>
-<div class="album py-4 bg-light" style="background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1');">
-  <div class="container">
+<section
+  style="
+    background-image: url(https://img.freepik.com/free-photo/grey-geometrical-shapes-background_23-2148811539.jpg?w=1380&t=st=1660721118~exp=1660721718~hmac=832a2ed063271e8af1ccddabdb47f65c357e4fa9937bb0c4b0d1aaeb03e3ecd2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+  <div class="fixed-top"><app-admin-header></app-admin-header></div>
+  <div class="container" style="margin-top: 3%">
     <div class="row">
-      <button class="col-md-2 m-3 btn btn-sm btn-success text-nowrap" (click)="goToAddFoodMenu()">Add FoodMenu</button>
+      <button
+        class="col-md-2 m-3 btn btn-md btn-success mt-5 text-nowrap shadow-lg rounded"
+        (click)="goToAddFoodMenu()"
+      >
+        Add FoodMenu
+      </button>
     </div>
-  </div>  
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-md-4" *ngFor="let foodMenu of FoodMenus">
-        <div class="card mb-4 box-shadow">
-          <a
-            [routerLink]="[foodMenu.menuId]"
-            [queryParams]="{ allowEdit: foodMenu.menuId > 0 ? '1' : '0' }"
-          > 
-            <img
-              class="card-img-top"
-              [alt]="foodMenu.menuName"
-              style="height: 225px; width: 100%; display: block"
-              [src]="foodMenu.menuImageUrl"></a>
+        <div
+          class="card mb-4 shadow-lg rounded"
+          style="background-color: hsla(0, 0%, 100%, 0.797)"
+        >
+          <img
+            class="card-img-top"
+            [alt]="foodMenu.menuName"
+            style="height: 225px; width: 100%; display: block"
+            [src]="foodMenu.menuImageUrl"
+          />
           <div class="card-body">
             <h4 class="card-title">{{ foodMenu.menuName }}</h4>
             <h5>Price:{{ foodMenu.menuPrice | currency: "INR" }}</h5>
             <div class="d-flex justify-content-between align-items-center">
-              <p class="fs-4">Item category {{foodMenu.itemCategory}}</p>
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateUser(foodMenu.menuId)">
-                  Edit
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="deleteUser(foodMenu.menuId)">
-                  Delete
-                </button>
-              </div>
+              <p class="fs-4">Item category {{ foodMenu.itemCategory }}</p>
+            </div>
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-md btn-dark btn-outline-light"
+                (click)="updateFood(foodMenu.id)"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-md btn-dark btn-outline-light"
+                (click)="deleteFood(foodMenu.id)"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-
+</section>

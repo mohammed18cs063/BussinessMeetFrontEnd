@@ -1,57 +1,131 @@
 <section class="sec">
-    <div class="container ">
-       <br>
-        <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br><br><br>
-            <div class="text-center"><h3>ADD FOOD MENU</h3></div><br>
-            <form [formGroup]="Addsfoodmenu"  (ngSubmit)="AddFoodMenu()" >
-    <div class="row">
-        <div class="col-md-10 mx-auto">
+  <div class="container">
+    <br />
+    <div
+      class="card mb-4 box-shadow"
+      style="background-color: black; opacity: 0.75"
+    >
+      <br /><br /><br />
+      <div class="text-center"><h3>ADD FOOD MENU</h3></div>
+      <br />
+      <form [formGroup]="Addsfoodmenu" (ngSubmit)="AddFoodMenu()">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
             <div class="form-group m-3">
-                <label for="menuName">Item Name:</label>
-                <input type="text" name="menuName" id="menuName" class="form-control">
-                <div *ngIf="Addsfoodmenu.get('menuName').invalid && Addsfoodmenu.controls.menuName.touched "
-               class="form-group" class="alert alert-danger">
-              <span class="text-danger" *ngIf="Addsfoodmenu.get('menuName').hasError('required')">Item Name is Required !</span>
-              <span class="text-danger" *ngIf="Addsfoodmenu.get('menuName').hasError('pattern')">Invalid  Food Name!</span>
-               </div> 
+              <label for="menuName">Item Name:</label>
+              <input
+                type="text"
+                name="menuName"
+                id="menuName"
+                formControlName="menuName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['menuName'].errors) ||
+                    (f['menuName'].touched && f['menuName'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['menuName'].errors) ||
+                  (f['menuName'].touched && f['menuName'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['menuName'].errors['required']">
+                  Food Name is required
+                </div>
+                <div *ngIf="f['menuName'].errors['pattern']">
+                  Food Name is Invalid
+                </div>
+              </div>
             </div>
             <div class="form-group m-3">
-                <label for="menuimageUrl">Item Image Url:</label>
-                <input [type="text" name="menuImageUrl" id="menuimageUrl" class="form-control">
-                <div *ngIf="Addsfoodmenu.get('menuImageUrl').invalid && Addsfoodmenu.controls.imageurl.touched "
-             class="form-group" class="alert alert-danger">
-            <span class="text-danger" *ngIf="Addsfoodmenu.get('menuImageUrl').hasError('required')">Imageurl is Required !</span>
-            
-             </div>
-            </div> 
+              <label for="menuImageUrl">Item Image Url:</label>
+              <input
+                type="text"
+                name="menuImageUrl"
+                formControlName="menuImageUrl"
+                id="menuImageUrl"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['menuImageUrl'].errors) ||
+                    (f['menuImageUrl'].touched && f['menuImageUrl'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['menuImageUrl'].errors) ||
+                  (f['menuImageUrl'].touched && f['menuImageUrl'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['menuImageUrl'].errors['required']">
+                  Image Url is required
+                </div>
+              </div>
+            </div>
             <div class="form-group m-3">
-                <label for="menuCost">Price</label>
-                <input  type="number" min="0" name="menuCost" id="menuCost" class="form-control">
-                <div *ngIf="Addsfoodmenu.get('menuPrice').invalid && Addsfoodmenu.controls.price.touched "
-           class="form-group" class="alert alert-danger">
-          <span class="text-danger" *ngIf="Addsfoodmenu.get('menuPrice').hasError('required')">Food Price is Required !</span>
-          <span class="text-danger" *ngIf="Addsfoodmenu.get('menuPrice').hasError('pattern')">Invalid  Food Name!</span>
-           </div>
+              <label for="menuPrice">Price</label>
+              <input
+                type="number"
+                min="0"
+                name="menuPrice"
+                formControlName="menuPrice"
+                (keypress)="keyPressNumbers($event)"
+                id="menuPrice"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['menuPrice'].errors) ||
+                    (f['menuPrice'].touched && f['menuPrice'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['menuPrice'].errors) ||
+                  (f['menuPrice'].touched && f['menuPrice'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['menuPrice'].errors['required']">
+                  Item Price is required
+                </div>
+                <div *ngIf="f['menuPrice'].errors['pattern']">
+                  Item Price is Invalid
+                </div>
+              </div>
             </div>
             <div class="form-group">
-                <label class="font-weight-bold" for="itemCategory">Item Category:</label>
-                <select id="itemCategory" class="form-control"  style="border-radius: 15px; height: 45px;
-                width: 410px; ;" formControlName="itemCategory" aria-placeholder="Enter the Category" id="itemCategory">
-                  <option selected>Select the Category</option>
-                  <option>Veg</option>
-                  <option>Non Veg</option>
-                </select>
-                <div *ngIf="Addsfoodmenu.get('itemCategory').invalid && Addsfoodmenu.controls.category.touched "
-           class="form-group" class="alert alert-danger">
-          <span class="text-danger" *ngIf="Addsfoodmenu.get('itemCategory').hasError('required')">Item Category is Required !</span>
-           </div>
-              </div>
+              <label class="font-weight-bold" for="itemCategory"
+                >Item Category:</label
+              >
+              <select
+                id="itemCategory"
+                class="form-control"
+                style="border-radius: 15px; height: 45px; width: 410px ;"
+                formControlName="itemCategory"
+                aria-placeholder="Enter the Category"
+                id="itemCategory"
+              >
+                <option selected>Select the Category</option>
+                <option>Veg</option>
+                <option>Non Veg</option>
+              </select>
+            </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-            <button type="button" class="btn btn-primary btn-lg" [disabled]="Addsfoodmenu.invalid">Add</button>
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                [disabled]="Addsfoodmenu.invalid"
+              >
+                Add
+              </button>
+            </div>
+          </div>
         </div>
+      </form>
     </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    </section>
+  </div>
+</section>

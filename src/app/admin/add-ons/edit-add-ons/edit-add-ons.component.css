@@ -1,15 +1,15 @@
-.sec{
-    background-image:url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-   }
-.container{
-    padding-bottom: 10rem;
+.sec {
+  background-image: url(https://img.freepik.com/free-photo/grey-geometrical-shapes-background_23-2148811539.jpg?w=1380&t=st=1660721118~exp=1660721718~hmac=832a2ed063271e8af1ccddabdb47f65c357e4fa9937bb0c4b0d1aaeb03e3ecd2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
-label{
-    color: white;
+.container {
+  padding-bottom: 10rem;
 }
-h3{
-    color: white;
+label {
+  color: white;
+}
+h3 {
+  color: white;
 }

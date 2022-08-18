@@ -1,5 +1,6 @@
 export class LoginModel {
-    emailId:string | undefined;
-    password:string | undefined;
-    role: string | undefined;
+    usertype:string;
+    email:string;
+    name:string;
+    id:number;
 }

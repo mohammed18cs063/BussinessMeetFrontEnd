@@ -1,0 +1,42 @@
+<app-admin-header></app-admin-header>
+<section class="sec">
+  <div class="container">
+    <br />
+    <div class="text-center"><h1>Users</h1></div>
+    <br /><br />
+
+    <div *ngFor="let user of users">
+      <a
+        [routerLink]="[user.id]"
+        [queryParams]="{ allowEdit: user.id > 0 ? '1' : '0' }"
+      >
+      </a>
+      <div class="row" styles="p3-border bg-light;">
+        <div class="col">
+          {{ user.id }}
+        </div>
+        <div class="col">
+          {{ user.name }}
+        </div>
+        <div class="col">
+          {{ user.email }}
+        </div>
+        <div class="col">
+          {{ user.phone }}
+        </div>
+        <div class="col"></div>
+        <div class="col">
+          <button
+            type="button"
+            class="btn btn-md btn-danger"
+            (click)="deleteUser(user.id)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <br />
+    </div>
+    <br /><br />
+  </div>
+</section>

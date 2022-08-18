@@ -23,15 +23,15 @@ export class ThemeComponent implements OnInit {
   })
   }
 
-deleteUser(themeid:number){
-this.themeService.deleteUser(themeid).subscribe(data=>{
+deleteUser(id:number){
+this.themeService.deleteUser(id).subscribe(data=>{
   console.log(data);
   alert("deleted successfully");
   this.gettheme();
 })
 }
-updateUser(themeid: number){
-this.router.navigate(['admin/editTheme',themeid])
+updateUser(id: number){
+this.router.navigate(['admin/edittheme',id])
 }
 goToAddTheme(){
   this.router.navigate(['admin/addtheme']);

@@ -1,0 +1,27 @@
+<app-admin-header></app-admin-header>
+<section
+style="background-image: url(https://img.freepik.com/free-photo/grey-geometrical-shapes-background_23-2148811539.jpg?w=1380&t=st=1660721118~exp=1660721718~hmac=832a2ed063271e8af1ccddabdb47f65c357e4fa9937bb0c4b0d1aaeb03e3ecd2);
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vh;">
+
+  <main role="main" class="container">
+    <div class="p-3 box-shadow rounded" style="background-color:hsla(0, 3%, 74%, 0.705);">
+      <h6 class="border-bottom border-light pb-2 mb-0">Feedbacks</h6>
+      <div class="media text-muted pt-3" *ngFor="let feedback of feedbacks">
+        <img
+          data-src="holder.js/32x32?theme=thumb&amp;bg=6f42c1&amp;fg=6f42c1&amp;size=1"
+          alt="32x32"
+          class="mr-2 rounded"
+          style="width: 32px; height: 32px"
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+          data-holder-rendered="true"
+        />
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-light text-white">
+          <strong class="d-block ">@{{ feedback.name }}</strong>
+          {{ feedback.feedbackMsg }}
+        </p>
+      </div>
+    </div>
+  </main>
+</section>

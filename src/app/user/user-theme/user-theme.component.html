@@ -6,14 +6,14 @@
         <div class="col-md-4" *ngFor="let theme of Uthemes">
           <div class="card mb-4 box-shadow" style="opacity: 0.9;">
             <a
-              [routerLink]="[theme.themeid]"
-              [queryParams]="{ allowEdit: theme.themeid > 0 ? '1' : '0' }"
+              routerLink="/user/book-event"
+              [queryParams]="{ allowEdit: theme.id > 0 ? '1' : '0' }"
             >
               <img
                 class="card-img-top"
                 [alt]="theme.themeName"
                 style="height: 225px; width: 100%; display: block"
-                [src]="theme.themeimageUrl"></a>
+                [src]="theme.themeImageUrl"></a>
             <div class="card-body">
               <h4 class="card-title">{{ theme.themeName }}</h4>
               <p class="card-text">

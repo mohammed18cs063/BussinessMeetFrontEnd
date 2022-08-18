@@ -1,108 +1,114 @@
 <section class="sec">
   <div class="container">
-     <br>
-      <div class="card mb-4 box-shadow" style="background-color:black ; opacity: 0.75;"><br>
-      <div class="text-center"><h3>EDIT ADD-ONS</h3></div><br>
-      <form   [formGroup]="editaddon"  (ngSubmit)="update()">
-  <div class="row">
-      <div class="col-md-10 mx-auto">
-          <div class="form-group m-3">
-              <label for="addOnName">AddOn Name:</label>
-              <input type="text" name="addOnName" id="addOnName" class="form-control">
-              <div *ngIf="editaddon.get('addOnName').invalid && editaddon.controls.foodname.touched "
-             class="form-group" class="alert alert-danger">
-            <span class="text-danger" *ngIf="editaddon.get('addOnName').hasError('required')">AddOn Name is Required </span>
-            <span class="text-danger" *ngIf="editaddon.get('addOnName').hasError('pattern')">Invalid  AddOn Name</span>
-             </div>    
+    <br />
+    <div
+      class="card mb-4 box-shadow"
+      style="background-color: black; opacity: 0.75"
+    >
+      <br /><br /><br />
+      <div class="text-center"><h3>EDIT ADD-ONS</h3></div>
+      <br />
+      <form [formGroup]="editaddon" (ngSubmit)="update()">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <div class="form-group m-3">
+              <label for="addonName">AddOn Name:</label>
+              <input
+                type="text"
+                name="addonName"
+                id="addonName"
+                formControlName="addonName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonName'].errors) ||
+                    (f['addonName'].touched && f['addonName'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['addonName'].errors) ||
+                  (f['addonName'].touched && f['addonName'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonName'].errors['required']">
+                  AddOn Name is required
+                </div>
+                <div *ngIf="f['addonName'].errors['pattern']">
+                  AddOn Name is Invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group m-3">
+              <label for="addonimageUrl">AddOn Image Url:</label>
+              <input
+                type="text"
+                name="addonimageUrl"
+                id="addonimageUrl"
+                formControlName="addonimageUrl"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonimageUrl'].errors) ||
+                    (f['addonimageUrl'].touched && f['addonimageUrl'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['addonimageUrl'].errors) ||
+                  (f['addonimageUrl'].touched && f['addonimageUrl'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonimageUrl'].errors['required']">
+                  Image Url is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group m-3">
+              <label for="addonPrice">AddOn Price:</label>
+              <input
+                type="number"
+                min="0"
+                (keypress)="keyPressNumbers($event)"
+                name="addonPrice"
+                id="addonPrice"
+                formControlName="addonPrice"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['addonPrice'].errors) ||
+                    (f['addonPrice'].touched && f['addonPrice'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['addonPrice'].errors) ||
+                  (f['addonPrice'].touched && f['addonPrice'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['addonPrice'].errors['required']">
+                  AddOn Price is required
+                </div>
+                <div *ngIf="f['addonPrice'].errors['pattern']">
+                  AddOn Price is Invalid
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                [disabled]="editaddon.invalid"
+              >
+                EDIT
+              </button>
+            </div>
           </div>
-          <div class="form-group m-3">
-              <label for="addOnImageUrl">AddOn Image Url:</label>
-              <input type="text" name="addOnImageUrl" id="addOnImageUrl" class="form-control">
-              <div *ngIf="editaddon.get('addOnImageUrl').invalid && editaddon.controls.foodname.touched "
-             class="form-group" class="alert alert-danger">
-            <span class="text-danger" *ngIf="editaddon.get('addOnImageUrl').hasError('required')">AddOn Image Url is Required !</span>
-            <span class="text-danger" *ngIf="editaddon.get('addOnImageUrl').hasError('pattern')">Invalid  AddOn Url</span>
-             </div>    
-          </div> 
-          <div class="form-group m-3">
-              <label for="addOnPrice">AddOn Price:</label>
-              <input type="number" min="0" name="addOnPrice" id="addOnPrice" class="form-control">
-              <div *ngIf="editaddon.get('addOnPrice').invalid && editaddon.controls.foodname.touched "
-             class="form-group" class="alert alert-danger">
-            <span class="text-danger" *ngIf="editaddon.get('addOnPrice').hasError('required')">AddOn Price is Required </span>
-            <span class="text-danger" *ngIf="editaddon.get('addOnPrice').hasError('pattern')">Invalid AddOn Price</span>
-             </div>    
-          </div>  
-          </div>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-          <button type="submit" class="btn btn-primary btn-lg"[disabled]="editaddon.invalid">Edit</button>
-      </div>
-  </div>
-</form>
-  </div>
-  </div>
-  </section>
-
-
-<!-- <section class="sec">
-<div class="container">
-  <br>
-  <div class="card mb-4 box-shadow" style="background-color:black; opacity: 0.75;"><br>
-    <div class="text-center"><h3>EDIT ADD-ONS</h3></div><br>
-    <div class="row">
-      <div class="col-md-10 mx-auto">
-        <div class="form-group m-3">
-          <label for="addOnId">AddOn Id:</label>
-          <input
-            [(ngModel)]="addOnId"
-            type="number"
-            name="addOnId"
-            id="addOnId"
-            class="form-control"
-          />
         </div>
-        <div class="form-group m-3">
-          <label for="addOnName">AddOn Name:</label>
-          <input
-            [(ngModel)]="addOnName"
-            type="text"
-            name="addOnName"
-            id="addOnName"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group m-3">
-          <label for="addOnimageUrl">AddOn Image Url:</label>
-          <input
-            [(ngModel)]="addOnImageUrl"
-            type="text"
-            name="addOnimageUrl"
-            id="addOnimageUrl"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group m-3">
-          <label for="addOnPrice">AddOn Price:</label>
-          <input
-            [(ngModel)]="addOnPrice"
-            type="number"
-            min="0"
-            name="addOnPrice"
-            id="addOnPrice"
-            class="form-control"
-          />
-        </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-          <button
-            type="button"
-            class="btn btn-primary btn-lg"
-            (click)="onUpdateAddOn()"
-          >
-            Edit
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
-</div>
-</section> -->
+</section>

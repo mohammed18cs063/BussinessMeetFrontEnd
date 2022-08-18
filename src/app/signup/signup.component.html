@@ -1,175 +1,220 @@
-<section class=" bg-image"
-  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+<section
+  class="vh-90 background"
+  style="
+    background: url(/assets/images/grey-geometrical-shapes-wallpaper_23-2148811542.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+  <div class="container " >
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-9 col-lg-9 col-xl-7">
+        <div class="card" style="border-radius: 10px ;margin-top:10%;">
+          <div class="card-body p-3"  >
+            <p class="text-center h1 fw-bold mb-3 mx-3 mx-md-5 mt-9">Sign up</p>
 
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-       
-      <!-- <div class="mb-1 m-1">
-        
-          <select id="role" formControlName="role"required style="border-radius: 5px;"
-              [ngClass]="{ 'is-invalid': (submitted && f['role'].errors)||(f['role'].touched && f['role'].errors) }" >
-              <option value="" id="admin/user" disable selected hidden>
-                Enter Admin/User
-              </option>
-              <option>User</option>
-              <option>Admin</option>
-          </select>
-              <div  *ngIf="(submitted && f['role'].errors)||(f['role'].touched && f['role'].errors)"
-                     class="invalid-feedback">
-                <div *ngIf="f['role'].errors['required']">
-                  Role is required
+            <form [formGroup]="RegisterForm" (ngSubmit)="userRegister()">
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-user fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
                 </div>
               </div>
-              </div><br> -->
-              
-          
-        <div class="form-outline mb-4">
-          <label class="form-label" for="emailId">EmailId</label>
-          <input 
-            type="emailId" 
-            formControlName="emailId" 
-            id="emailId"
-            class="form-control form-control-lg"
-            [ngClass]="{ 'is-invalid': (submitted && f['emailId'].errors)||(f['emailId'].touched && f['emailId'].errors)  }"
-          >
-          <div 
-            *ngIf="(submitted && f['emailId'].errors)||(f['emailId'].touched && f['emailId'].errors) " 
-            class="invalid-feedback">
-             <div *ngIf="f['emailId'].errors['required']">
-               EmailId is required
-             </div>
-             <div *ngIf="f['emailId'].errors['emailId']">
-               EmailId is invalid
-             </div>
-          </div>
-        </div>
-        <div class="form-outline mb-4">
-          <label class="form-label" for="name">name</label>
-            <input
-              id="name"
-              type="text"
-              formControlName="Name"
-              class="form-control form-control-lg"
-              [ngClass]="{ 'is-invalid': (submitted && f['Name'].errors)||(f['Name'].touched && f['Name'].errors)  }"
-            />
-            <div
-              *ngIf="(submitted && f['Name'].errors)||(f['Name'].touched && f['Name'].errors) "
-              class="invalid-feedback"
-            >
-              <div *ngIf="f['Name'].errors['required']" >
-               Name is required
-              </div>
-            </div>
-        </div>
-        <div class="form-outline mb-4">
-          <label class="form-label" for="phoneNumber">phoneNumber</label>
-            <input
-              id="phoneNumber"
-              type="text"
-              formControlName="phoneNumber"
-              class="form-control form-control-lg"
-              [ngClass]="{ 'is-invalid': (submitted && f['phoneNumber'].errors)||(f['phoneNumber'].touched && f['phoneNumber'].errors)  }"
-            />
-            <div
-              *ngIf="(submitted && f['phoneNumber'].errors)||(f['phoneNumber'].touched && f['phoneNumber'].errors) "
-              class="invalid-feedback"
-            >
-              <div *ngIf="f['phoneNumber'].errors['required']" >
-                User Name is required
-              </div>
-            </div>
-        </div>
-        <div class="form-outline mb-4">
-          <label class="form-label" for="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              formControlName="userName"
-              class="form-control form-control-lg"
-              [ngClass]="{ 'is-invalid': (submitted && f['userName'].errors)||(f['userName'].touched && f['userName'].errors)  }"
-            />
-            <div
-              *ngIf="(submitted && f['userName'].errors)||(f['userName'].touched && f['userName'].errors) "
-              class="invalid-feedback"
-            >
-              <div *ngIf="f['userName'].errors['required']" >
-                User Name is required
-              </div>
-            </div>
-        </div>
 
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form3Example4cdg">Password</label>
-            <input 
-              type="password"  
-              formControlName="password" 
-              id="password"
-              class="form-control form-control-lg"
-              [ngClass]="{ 'is-invalid':  (submitted && f['password'].errors)||(f['password'].touched && f['password'].errors)  }"
-           />
-          <div 
-            *ngIf="(submitted && f['password'].errors)||(f['password'].touched && f['password'].errors)" 
-            class="invalid-feedback"
-          >
-            <div *ngIf="f['password'].errors['required']">
-              Password is required
-            </div>
-            <div *ngIf="f['password'].errors['minlength']">
-              Password must be at least 6 characters
-            </div>
-            <div *ngIf="f['password'].errors['maxlength']">
-              Password must not exceed 40 characters
-            </div>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-envelope fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
+                  <input
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Enter email"
+                    id="email"
+                  />
+                  <div
+                    *ngIf="
+                      RegisterForm.get('email').invalid &&
+                      RegisterForm.controls.email.touched
+                    "
+                    class="form-group"
+                    class="alert"
+                  >
+                    <small
+                      style="color: red"
+                      *ngIf="RegisterForm.get('email').hasError('required')"
+                    >
+                      Email is Required!
+                    </small>
+                    <small
+                      style="color: red"
+                      *ngIf="
+                        RegisterForm.get('email').hasError('email') &&
+                        !RegisterForm.get('email').hasError('required')
+                      "
+                    >
+                      Invalid Email!
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-user fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
+                  <input
+                    class="form-control"
+                    formControlName="name"
+                    placeholder="Enter Username"
+                    id="name"
+                  />
+
+                  <div
+                    *ngIf="
+                      RegisterForm.get('name').invalid &&
+                      RegisterForm.controls.name.touched
+                    "
+                    class="form-group"
+                    class="alert"
+                  >
+                    <small
+                      style="color: red"
+                      *ngIf="RegisterForm.get('name').hasError('required')"
+                      >Name is Required !</small
+                    >
+                    <small *ngIf="RegisterForm.get('name').hasError('pattern')">
+                      Enter a valid name!
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-phone fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
+                  <input
+                    class="form-control"
+                    formControlName="phone"
+                    placeholder="Enter Mobile Number"
+                    id="phone"
+                  />
+
+                  <div
+                    style="color: red"
+                    *ngIf="
+                      RegisterForm.get('phone').invalid &&
+                      RegisterForm.controls.phone.touched
+                    "
+                    class="form-group"
+                    class="alert"
+                  >
+                    <small
+                      *ngIf="RegisterForm.get('phone').hasError('required')"
+                    >
+                      Mobile Number is Required !
+                    </small>
+                    <small
+                      *ngIf="RegisterForm.get('phone').hasError('pattern')"
+                    >
+                      Invalid mobile number!
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-key fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
+                  <input
+                    class="form-control"
+                    type="password"
+                    formControlName="password"
+                    id="password"
+                    placeholder="Password"
+                  />
+
+                  <div
+                    *ngIf="
+                      RegisterForm.get('password').invalid &&
+                      RegisterForm.controls.password.touched
+                    "
+                    class="form-group"
+                    class="alert"
+                  >
+                    <small
+                      style="color: red"
+                      *ngIf="RegisterForm.get('password').hasError('required')"
+                    >
+                      Enter password !
+                    </small>
+                    <small
+                      style="color: red"
+                      *ngIf="RegisterForm.get('password').hasError('minlength')"
+                    >
+                      password should not contain less than 8 characters !
+                    </small>
+
+                    <small
+                      style="color: red"
+                      *ngIf="RegisterForm.get('password').hasError('maxlength')"
+                    >
+                      password exceed more than 16 characters !
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-row align-items-center mb-4">
+                <em class="fas fa-key fa-lg me-3 fa-fw"></em>
+                <div class="form-outline flex-fill mb-0">
+                  <input
+                    class="form-control"
+                    type="password"
+                    formControlName="cpassword"
+                    id="cpassword"
+                    placeholder="Confirm Password"
+                  />
+
+                  <div
+                    style="color: red"
+                    *ngIf="
+                      RegisterForm.get('cpassword').hasError('required') &&
+                      RegisterForm.controls.cpassword.touched
+                    "
+                    class="alert"
+                  >
+                    <small
+                      *ngIf="RegisterForm.get('cpassword').hasError('required')"
+                    >
+                      Re-enter your password !
+                    </small>
+                  </div>
+                  <div
+                    style="color: red"
+                    *ngIf="
+                      RegisterForm.get('cpassword').hasError('notEquivalent') &&
+                      RegisterForm.controls.cpassword.touched
+                    "
+                    class="alert"
+                  >
+                    Passwords dont match
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button
+                  type="submit"
+                  [disabled]="RegisterForm.invalid"
+                  class="btn btn-primary btn-lg"
+                >
+                  Register
+                </button>
+              </div>
+              <p class="mb-5 pb-lg-2" style="color: #393f81">
+                Already have an account?
+                <a style="color: #393f81" routerLink="/login">Login here</a>
+              </p>
+            </form>
           </div>
         </div>
-    
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form3Example4cdg">Confirm Password</label>
-            <input type="password" 
-              id="confirmPassword" 
-              formControlName="confirmPassword"
-              class="form-control form-control-lg" 
-              [ngClass]="{ 'is-invalid': (submitted && f['confirmPassword'].errors)||(f['confirmPassword'].touched && f['confirmPassword'].errors)}"
-            />
-            <div 
-              *ngIf="(submitted && f['confirmPassword'].errors)||(f['confirmPassword'].touched && f['confirmPassword'].errors)" 
-              class="invalid-feedback">
-              <div *ngIf="f['confirmPassword'].errors['required']">
-                Password is required
-              </div>
-              <div *ngIf="f['confirmPassword'].errors['matching']">
-                Password doesnot match
-              </div>
-            </div>
-        </div>
-            <div class="form-outline mb-4">
-              <a href="#" 
-              routerLink="/login" 
-              routerLinkActive="active"  >
-                <button class="btn btn-primary" type="submit">Submit</button></a>
-            </div> 
-            <div>
-              <label>Already a user?</label>
-              <a href="#" 
-                 routerLink="/login" 
-                 routerLinkActive="active" 
-                 id="signinLink">
-                 Login
-              </a>
-            </div>
-           
-      </form>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
-</div>
+  </div>
 </section>

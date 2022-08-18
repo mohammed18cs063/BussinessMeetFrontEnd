@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FoodMenuService } from '../../service/food-menu.service';
 import { FoodMenuModel } from '../../model/food-menu.model';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-food-menu',
   templateUrl: './add-food-menu.component.html',
@@ -11,10 +11,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddFoodMenuComponent implements OnInit {
   Addsfoodmenu: any;
   users!: FoodMenuModel[] ;
+  submitted = false;
 
   constructor(private activatedRoute:ActivatedRoute,private foodMenuService:FoodMenuService,private router:Router,private formBuilder: FormBuilder) { this.forms();}
 
   ngOnInit(): void {
+    //
   }
   forms()
   {
@@ -28,13 +30,22 @@ export class AddFoodMenuComponent implements OnInit {
   AddFoodMenu()
   {
     console.log(this.Addsfoodmenu.value);
-    this.foodMenuService.Addingtheme(this.Addsfoodmenu.value).subscribe(data=>{
+    this.foodMenuService.Addingfood(this.Addsfoodmenu.value).subscribe(_data=>{
       alert("Food Added Successfully")
       this.Addsfoodmenu.reset();
-      this.router.navigate(['admin/foodMenus']);
-
-    
-  },error=>alert("Food name already exits "));
+      this.router.navigate(['admin/FoodMenu']); 
+  },_error=>alert("Food name already exits "));
     }
+    keyPressNumbers(event:any) {
+      let charCode = (event.which) ? event.which : event.keyCode;
+      if ((charCode < 48 || charCode > 57)) {
+        event.preventDefault();
+        return false;
+      } else {
+        return true;
+      }  }
+      get f(): { [key: string]: AbstractControl } {
+        return this.Addsfoodmenu.controls;
+      }
 
 }

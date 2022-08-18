@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators,AbstractControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-event',
@@ -95,8 +95,7 @@ export class BookEventComponent implements OnInit {
     return this.eventform.controls;
   }
   keyPressNumbers(event:any) {
-    var charCode = (event.which) ? event.which : event.keyCode;
-    // Only Numbers 0-9
+    let charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 48 || charCode > 57)) {
       event.preventDefault();
       return false;

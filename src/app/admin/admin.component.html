@@ -1,19 +1,29 @@
-<section class="sec">
-<div>
-    <app-admin-header></app-admin-header>
-</div>
-<div class="text-center" style="padding-bottom:15rem ;" class="ad">
-    <h1>Welcome Back Admin</h1><br>
+<section
+  style="
+    background-image: url(https://img.freepik.com/free-photo/grey-geometrical-shapes-background_23-2148811539.jpg?w=1380&t=st=1660721118~exp=1660721718~hmac=832a2ed063271e8af1ccddabdb47f65c357e4fa9937bb0c4b0d1aaeb03e3ecd2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+  <div class="fixed-top"><app-admin-header></app-admin-header></div>
+  <div class="text-center  " style="padding-top: 20%">
+    <h1 style="text-shadow:20%;">Welcome Back Admin</h1>
+    <br />
     <div class="container">
-        <div class="row">
-          <div class="col-md-12  text-center">
-    <button routerLink="/admin/theme" routerLinkActive="active" type="button" class="btn btn-primary ">Continue</button>
-</div>
-<div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button
+            routerLink="/admin/themes"
+            routerLinkActive="active"
+            type="button"
+            class="btn btn-primary"
+          >
+            Continue
+          </button>
+        </div>
+        <div></div>
+      </div>
     </div>
-    </div>
-    </div>
-    <router-outlet></router-outlet>
-</div>
-
+  </div>
 </section>

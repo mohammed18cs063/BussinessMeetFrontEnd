@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ThemeService } from 'src/app/admin/service/theme.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { ThemeModel } from '../../model/theme.model';
 
 @Component({
@@ -10,16 +10,17 @@ import { ThemeModel } from '../../model/theme.model';
   styleUrls: ['./edit-theme.component.css']
 })
 export class EditThemeComponent implements OnInit {
-  themeid!: number;
+  id!: number;
   user: ThemeModel = new ThemeModel();
   edittheme: any;
+  submitted = false;
 
   constructor(private activatedRoute:ActivatedRoute,private themeService:ThemeService,private  router : Router,private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.themeid = this.activatedRoute.snapshot.params['themeid'];
+    this.id = this.activatedRoute.snapshot.params['id'];
 
-    this.themeService.getUserById(this.themeid).subscribe(data => {
+    this.themeService.getUserById(this.id).subscribe(data => {
       this.user = data;
       this.newforms();
     }, error => console.log(error));
@@ -29,12 +30,9 @@ export class EditThemeComponent implements OnInit {
   {
     this.edittheme = this.formBuilder.group({
     themeName:[this.user.themeName,[Validators.required,Validators.pattern("^[a-zA-Z' ']*")]],
-    themeimageUrl:[this.user.themeimageUrl,[Validators.required]],
-    photographerDetails:[this.user.photographerDetails,[Validators.required,Validators.pattern("^[a-zA-Z0-9,:;/.&' ']*")]],
-    videographerDetails:[this.user.videographerDetails,[Validators.required,Validators.pattern("^[a-zA-Z0-9,;:/.&' ']*")]],
-    gift:[this.user.gift,[Validators.required,Validators.pattern("^[a-zA-Z' '0-9]*")]],
+    themeImageUrl:[this.user.themeImageUrl,[Validators.required]],
     themeCost:[this.user.themeCost,[Validators.required,Validators.pattern("^[0-9]*")]],
-    themeDiscription:[this.user.themeDescription,[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
+    themeDescription:[this.user.themeDescription,[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
       
     })
   }
@@ -42,23 +40,31 @@ forms()
 {
   this.edittheme = this.formBuilder.group({
     themeName:['',[Validators.required,Validators.pattern("^[a-zA-Z' ']*")]],
-    themeimageUrl:['',[Validators.required]],
-    photographerDetails:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9,:;/.&' ']*")]],
-    videographerDetails:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9,;:/.&' ']*")]],
-    gift:['',[Validators.required,Validators.pattern("^[a-zA-Z' '0-9]*")]],
+    themeImageUrl:['',[Validators.required]],
     themeCost:['',[Validators.required,Validators.pattern("^[0-9]*")]],
     themeDescription:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9' ']*")]]
   })
 }
 
   update(){
-    this.themeService.updateUser(this.themeid, this.edittheme.value).subscribe( data =>{
+    this.themeService.updateUser(this.id, this.edittheme.value).subscribe( _data =>{
       this.goToUserList();
-    },error=>alert("something went wrong "))
+    },_error=>alert("something went wrong "))
    
   }
   goToUserList(){
     alert("updated successfully");
     this.router.navigate(['admin/themes']);
   }
+  get f(): { [key: string]: AbstractControl } {
+    return this.edittheme.controls;
+  }
+  keyPressNumbers(event:any) {
+    let charCode = (event.which) ? event.which : event.keyCode;
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }}
 }

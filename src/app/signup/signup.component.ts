@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,Validators,FormBuilder, AbstractControl } from '@angular/forms';
+import { FormGroup,Validators,FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from '../model/user-model.model';
-import { ConfirmValidation } from './confirm-validation';
-import { UsersignupService } from '../services/usersignup.service';
+import { UserSignupService } from '../services/usersignup.service';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,146 +11,61 @@ import { UsersignupService } from '../services/usersignup.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  user:UserModel = new UserModel();
-  constructor(private usersignupService:UsersignupService,private router: Router,private formBuilder: FormBuilder) { }
-
-createUser()
-{
-this.usersignupService.createUser(this.user).subscribe(data=>{alert("Signup success");
-this.goToLogin()
-},
-error=>{
-  if(error.status==400)
-  {
-    alert("Please fill all the details");
-  }
-  else
-  {
-    alert("Signup success");
-  }
-});
-}
-  onPasswordChange() {
-    if (this.confirm_password.value == this.password1.value) {
-      this.confirm_password.setErrors(null);
-    } else {
-      this.confirm_password.setErrors({ mismatch: true });
+  public RegisterForm: any;
+  msg="";
+  user:UserModel;
+  submitted:boolean=false;
+  constructor(private registerService: UserSignupService,
+    private _router : Router,
+    private formBuilder: FormBuilder) { 
+      this.forms();
     }
-  }
-  // getting the form control elements
-  get password1(): AbstractControl {
-    return this.signupForm.controls['password'];
-  }
-  get confirm_password(): AbstractControl {
-    return this.signupForm.controls['confirmpassword'];
-  } 
-
-  signupForm: FormGroup =new FormGroup({
-    role:new FormControl(''),
-    name:new FormControl(''),
-    emailId:new FormControl(''),
-    username:new FormControl(''),
-    phoneNumber:new FormControl(''),
-    password:new FormControl(''),
-    confirmPassword:new FormControl(''),
-
-  })
-
-
-  submitted = false;
-
+    checkingPassword(password: string, passwordConfirmation: string) {
+      return (group: FormGroup) => {
+        let passwordInput = group.controls[password],
+            passwordConfirmationInput = group.controls[passwordConfirmation];
+        if (passwordInput.value !== passwordConfirmationInput.value) {
+          return passwordConfirmationInput.setErrors({notEquivalent: true})
+        }
+        else {
+            return passwordConfirmationInput.setErrors(null);
+        }
+      }
+    }
   ngOnInit(): void {
-    this.signupForm = this.formBuilder.group({
-      role:
-    [
-      '',
-      [Validators.required]
-    ],
-      emailId: [
-        '', 
-        [Validators.required, 
-         Validators.email
-        ]
-      ],
-      name: [
-        '', 
-        [Validators.required]
-      ],
-      username: [
-        '', 
-        [Validators.required]
-      ],
-      phoneNumber: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')
-        ]
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(40)
-        ]
-      ],
-      confirmPassword: [
-        '',
-        [
-          Validators.required,
-        ]
-      ]
-    },
-    {
-      validators:[ConfirmValidation. match('password', 'confirmPassword')]
-    }
-     
-    )
+    //
   }
-  get f(): { [key: string]: AbstractControl } {
-    return this.signupForm.controls;
+  forms() {
+    this.RegisterForm = this.formBuilder.group({
+      usertype:["user"],
+      email: ['', [Validators.required,Validators.email]],
+      password: ['', [Validators.minLength(8),Validators.maxLength(16),Validators.required]],
+      name: ['', Validators.required],
+      phone: ['', [Validators.required,]],
+      cpassword: ['', Validators.required]
+    },{validator: this.checkingPassword('password', 'cpassword')});
   }
-  get emailId(){
-	  return this.signupForm.get('emailId');
-  }
-  get name(){
-	  return this.signupForm.get('name');
-  }
-  get username(){
-	  return this.signupForm.get('username');
-  }
-  get phoneNumber(){
-	  return this.signupForm.get('phoneNumber');
-  }
-  get password(){
-	  return this.signupForm.get('password');
-  }
-  get confirmpassword(){
-	  return this.signupForm.get('confirmpassword');
-  }
-  // get role(){
-	//   return this.signupForm.get('role');
-  // }
-  signup(){
-    this.createUser();
-    this.router.navigate(['user/login']);
 
-  }
-  goToLogin()
+  userRegister()
   { 
-    this.router.navigate(['login']);
-  }
-  gotoUser()
-  { 
-    this.router.navigate(['user']);
-  }
-  onSubmit(): void {
-    this.submitted = true;
-    if (this.signupForm.invalid) {
+     this.submitted = true;
+    if (this.RegisterForm.invalid) {
+      alert("Enter all details");
       return;
     }
-    console.log(JSON.stringify(this.signupForm.value, null, 2));
-}
+    
+     console.log(this.RegisterForm.value);
+     this.registerService.registerUser(this.RegisterForm.value).subscribe(
+    _data=>
+    {
+    alert("Registration successfull");
+    this._router.navigate(['/login']);
+     },
+     (error:{error:any;})=>{
+      console.log("Registration Failed");
+      console.log(error.error);
+      alert(error.error);
+     })
+ }
 
 }

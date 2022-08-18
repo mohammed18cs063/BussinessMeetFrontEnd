@@ -6,11 +6,16 @@ import { UserModel } from '../model/user-model.model';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersignupService {
+export class UserSignupService {
+   baseUrl="http://localhost:8080/signup";
+  constructor(private httpClient: HttpClient)
+  {  
   
-  baseUrl='http://localhost:8080/signup';
-  constructor(private httpClient:HttpClient) { }
-  createUser(user:UserModel):Observable<object>{
-    return this.httpClient.post<UserModel[]>(`${this.baseUrl}`,user);
+  }
+
+ public registerUser(user: UserModel) :Observable<object>
+  {
+    console.log(user);
+    return this.httpClient.post(`${this.baseUrl}`,user);
   }
 }

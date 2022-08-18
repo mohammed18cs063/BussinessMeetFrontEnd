@@ -1,80 +1,145 @@
 <section class="sec">
-<div class="container">
-    <br>
-    <div class="card mb-4 box-shadow" style="background-color:black ;opacity: 0.75;"><br>
-        <div class="text-center"><h3>ADD THEME</h3></div><br>
-        <form [formGroup]="Addstheme"  (ngSubmit)="AddTheme()">
-<div class="row">
-    <div class="col-md-10 mx-auto" >
-        <div class="form-group m-3">
-            <label for="themeName">Theme Name:</label>
-            <input type="text" name="themeName" id="themeName" class="form-control">
-            <div *ngIf="Addstheme.get('themeName').invalid && Addstheme.controls.themeName.touched "
-                         class="form-group" class="alert alert-danger">
-                        <span class="text-danger" *ngIf="Addstheme.get('themeName').hasError('required')">theme Name is Required !</span>
-                        <span class="text-danger" *ngIf="Addstheme.get('themeName').hasError('pattern')">Invalid  theme Name!</span>
-                         </div>    
-        </div>
-        <div class="form-group m-3">
-            <label for="themeimageUrl">Theme Image Url:</label>
-            <input type="text" name="themeimageUrl" id="themeimageUrl" class="form-control">
-            <div *ngIf="Addstheme.get('themeimageUrl').invalid && Addstheme.controls.imageUrl.touched " class="form-group" class="alert alert-danger">
-                <span style="color: red;" *ngIf="Addstheme.get('themeimageUrl').hasError('required')">ImageUrl is Required !</span>
+  <div class="container">
+    <br />
+    <div
+      class="card mb-4 box-shadow"
+      style="background-color: black; opacity: 0.75"
+    >
+      <br />
+      <div class="text-center"><h3>ADD THEME</h3></div>
+      <br />
+      <form [formGroup]="Addstheme" (ngSubmit)="AddTheme()">
+        <div class="row">
+          <div class="col-md-10 mx-auto">
+            <div class="form-group m-3">
+              <label for="themeName">Theme Name:</label>
+              <input
+                type="text"
+                name="themeName"
+                formControlName="themeName"
+                id="themeName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['themeName'].errors) ||
+                    (f['themeName'].touched && f['themeName'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['themeName'].errors) ||
+                  (f['themeName'].touched && f['themeName'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['themeName'].errors['required']">
+                  Theme Name is required
+                </div>
+                <div *ngIf="f['themeName'].errors['pattern']">
+                  Theme Name is Invalid
+                </div>
+              </div>
             </div>
-        </div>
-        <div class="form-group m-3">
-            <label for="themeCost">Cost:</label>
-            <input type="number" min="0" name="themeCost" id="themeCost" class="form-control">
-            <div *ngIf="Addstheme.get('themeCost').invalid && Addstheme.controls.themeCost.touched "
-            class="form-group" class="alert alert-danger">
-            <span style="color: red;" *ngIf="Addstheme.get('themeCost').hasError('required')">theme cost  is Required !</span>
-            <span style="color: red;" *ngIf="Addstheme.get('themeCost').hasError('pattern')">invalid theme cost !</span>
-
-        </div>
-        </div>
-        <div class="form-group m-3">
-            <label for="photographerDetails">Photographer Details:</label>
-            <input type="text" name="photographerDetails" id="photographerDetails" class="form-control">
-            <div *ngIf="Addstheme.get('photographerDetails').invalid && Addstheme.controls.photographerDetails.touched "
-            class="form-group" class="alert alert-danger">
-          <span style="color: red;" *ngIf="Addstheme.get('photographerDetails').hasError('required')">photographer Details is Required !</span>
-          <span style="color: red;" *ngIf="Addstheme.get('photographerDetails').hasError('pattern')">Invalid  photographerDetails!</span>
-           </div> 
-        </div>
-        <div class="form-group m-3">
-            <label for="videographerDetails">Videographer Details:</label>
-            <input type="text" name="videographerDetails" id="videographerDetails" class="form-control">
-            <div *ngIf="Addstheme.get('videographerDetails').invalid && Addstheme.controls.videographerDetails.touched "
-                        class="form-group" class="alert alert-danger">
-                        <span style="color: red;" *ngIf="Addstheme.get('videographerDetails').hasError('required')">videographer Details  is Required !</span>
-                        <span style="color: red;" *ngIf="Addstheme.get('videographerDetails').hasError('pattern')">Invalid videographer Details  !</span>
-                        </div> 
-        </div>
-        <div class="form-group m-3">
-            <label for="gift">Gift:</label>
-            <input type="text" name="gift" id="gift" class="form-control">
-            <div *ngIf="Addstheme.get('gift').invalid && Addstheme.controls.returnGift.touched "
-            class="form-group" class="alert alert-danger">
-            <span style="color: red;" *ngIf="Addstheme.get('gift').hasError('required')">Gift Details  is Required !</span>
-            <span style="color: red;" *ngIf="Addstheme.get('gift').hasError('pattern')">Invalid Gift Details!</span>
-
+            <div class="form-group m-3">
+              <label for="themeimageUrl">Theme Image Url:</label>
+              <input
+                type="text"
+                name="themeImageUrl"
+                formControlName="themeImageUrl"
+                id="themeImageUrl"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['themeImageUrl'].errors) ||
+                    (f['themeImageUrl'].touched && f['themeImageUrl'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['themeImageUrl'].errors) ||
+                  (f['themeImageUrl'].touched && f['themeImageUrl'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['themeImageUrl'].errors['required']">
+                  Url is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group m-3">
+              <label for="themeCost">Cost:</label>
+              <input
+                type="number"
+                min="0"
+                name="themeCost"
+                id="themeCost"
+                (keypress)="keyPressNumbers($event)"
+                formControlName="themeCost"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['themeCost'].errors) ||
+                    (f['themeCost'].touched && f['themeCost'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['themeCost'].errors) ||
+                  (f['themeCost'].touched && f['themeCost'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['themeCost'].errors['required']">
+                  Theme Cost is required
+                </div>
+                <div *ngIf="f['themeCost'].errors['pattern']">
+                  Theme Cost is Invalid
+                </div>
+              </div>
+            </div>
+            <div class="form-group m-3">
+              <label for="themeDescription">Theme Description:</label>
+              <input
+                type="text"
+                name="themeDescription"
+                formControlName="themeDescription"
+                id="themeDescription"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    (submitted && f['themeDescription'].errors) ||
+                    (f['themeDescription'].touched &&
+                      f['themeDescription'].errors)
+                }"
+              />
+              <div
+                *ngIf="
+                  (submitted && f['themeDescription'].errors) ||
+                  (f['themeDescription'].touched &&
+                    f['themeDescription'].errors)
+                "
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['themeDescription'].errors['required']">
+                  Theme Description is required
+                </div>
+                <div *ngIf="f['themeDescription'].errors['pattern']">
+                  Theme Description is Invalid
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
+              <button
+                type="submit"
+                [disabled]="Addstheme.invalid"
+                class="btn btn-primary btn-lg"
+              >
+                Add
+              </button>
+            </div>
           </div>
         </div>
-        <div class="form-group m-3">
-            <label for="themeDescription">Theme Description:</label>
-            <input type="text" name="themeDescription" id="themeDescription" class="form-control">
-            <div *ngIf="Addstheme.get('themeDiscription').invalid && Addstheme.controls.themeDiscription.touched "
-            class="form-group" class="alert alert-danger">
-            <span style="color: red;" *ngIf="Addstheme.get('themeDiscription').hasError('required')">Theme Discription Details  is Required !</span>
-            <span style="color: red;" *ngIf="Addstheme.get('themeDiscription').hasError('pattern')">invalid Theme Discription Details!</span>
-            </div>
-        </div >
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center m-3">
-        <button  [disabled]="Addstheme.invalid"class="btn btn-primary btn-lg">Add</button>
+      </form>
     </div>
-</div>
-</div>
-</form>
-</div>
-</div>
+  </div>
 </section>

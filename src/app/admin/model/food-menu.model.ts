@@ -1,5 +1,5 @@
 export class FoodMenuModel{
-    menuId:number;
+    id:number;
     menuName:string;
     menuImageUrl:string;
     menuPrice:number;
