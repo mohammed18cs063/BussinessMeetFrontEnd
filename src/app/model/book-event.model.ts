@@ -1,15 +1,16 @@
 import { Time } from "@angular/common";
 
-export interface BookEvent {
-    eventId: number;
-    eventName:string;
-    name:string;
-    userAddress:string;
-    eventDate: Date ;
-    phoneNumber:string;
-    eventTime: Time;
-    noOfPeople:number;
-    menu : string ;
-    addon : string ;
-    userId : number ;
+export class BookEvent {
+    eventId!: number;
+    eventName!:string;
+    name!:string;
+    userAddress!:string;
+    eventDate!: Date ;
+    phoneNumber!:string;
+    email!:string;
+    eventTime!: Time;
+    noOfPeople!:number;
+    menu !: number ;
+    addon !: number ;
+    userId !: number ;
 }

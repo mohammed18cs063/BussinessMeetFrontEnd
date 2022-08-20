@@ -24,7 +24,7 @@ export class ThemeComponent implements OnInit {
   }
 
 deleteUser(id:number){
-this.themeService.deleteUser(id).subscribe(data=>{
+this.themeService.deleteTheme(id).subscribe(data=>{
   console.log(data);
   alert("deleted successfully");
   this.gettheme();

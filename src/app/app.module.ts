@@ -27,9 +27,7 @@ import { AuthInterceptor } from './security/httpinterceptor';
 import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
-import { ViewBookedEventComponent } from './user/view-booked-event/view-booked-event.component';
-import { EditBookedEventComponent } from './user/view-booked-event/edit-booked-event/edit-booked-event.component';
-
+import { ViewBookedEventComponent } from './user/book-event/view-booked-event/view-booked-event.component';
 
 
 @NgModule({
@@ -57,7 +55,6 @@ import { EditBookedEventComponent } from './user/view-booked-event/edit-booked-e
     AdminFeedbackComponent,
     ViewUsersComponent,
     ViewBookedEventComponent,
-    EditBookedEventComponent,
   ],
   imports: [
     BrowserModule,

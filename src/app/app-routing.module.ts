@@ -22,6 +22,7 @@ import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component
 import { FeedbackComponent } from './user/feedback/feedback.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
+import { ViewBookedEventComponent } from './user/book-event/view-booked-event/view-booked-event.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'user/user-theme', pathMatch:'full'},
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:'admin/editFoodMenu/:id',canActivate : [AuthGuard,AdminGuard],component:EditFoodMenuComponent},
   {path:'admin/addFoodMenu',canActivate : [AuthGuard,AdminGuard],component:AddFoodMenuComponent},
   {path:'user',canActivate : [AuthGuard,UserGuard],component:UserComponent},
-  {path:'user/book-event',canActivate : [AuthGuard,UserGuard],component:BookEventComponent},
+  {path:'user/book-event/:id',canActivate : [AuthGuard,UserGuard],component:BookEventComponent},
+  {path:'user/view-booked-events',canActivate:[AuthGuard,UserGuard],component:ViewBookedEventComponent},
   {path:'user/user-theme',component:UserThemeComponent},
   {path:'user/add-feedback',canActivate : [AuthGuard,UserGuard],component:AddFeedbackComponent},
   {path:'user/feedback',canActivate : [AuthGuard,UserGuard],component:FeedbackComponent},

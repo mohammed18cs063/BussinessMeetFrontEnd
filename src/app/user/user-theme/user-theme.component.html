@@ -6,8 +6,7 @@
         <div class="col-md-4" *ngFor="let theme of Uthemes">
           <div class="card mb-4 box-shadow" style="opacity: 0.9;">
             <a
-              routerLink="/user/book-event"
-              [queryParams]="{ allowEdit: theme.id > 0 ? '1' : '0' }"
+              [routerLink]="['/user/book-event',theme['id']]"
             >
               <img
                 class="card-img-top"
@@ -22,7 +21,7 @@
               <h5>Price:{{ theme.themeCost | currency: "INR" }}</h5>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" routerLink="/user/book-event"
+                  <button type="button" [routerLink]="['/user/book-event',theme['id']]"
                   routerLinkActive="active" class="btn btn-sm btn-outline-secondary" >
                     Book
                   </button>

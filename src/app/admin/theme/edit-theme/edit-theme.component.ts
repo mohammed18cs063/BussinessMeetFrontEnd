@@ -20,7 +20,7 @@ export class EditThemeComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
 
-    this.themeService.getUserById(this.id).subscribe(data => {
+    this.themeService.getTheme(this.id).subscribe(data => {
       this.user = data;
       this.newforms();
     }, error => console.log(error));
@@ -47,7 +47,7 @@ forms()
 }
 
   update(){
-    this.themeService.updateUser(this.id, this.edittheme.value).subscribe( _data =>{
+    this.themeService.updateTheme(this.id, this.edittheme.value).subscribe( _data =>{
       this.goToUserList();
     },_error=>alert("something went wrong "))
    

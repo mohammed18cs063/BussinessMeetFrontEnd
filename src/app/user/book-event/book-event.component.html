@@ -12,41 +12,57 @@
             <div class="form-outline mb-4">
               <input
                 type="text"
-                id="Event Name"
+                id="eventName"
                 class="form-control"
                 placeholder="Event Name"
+                [(ngModel)]="bookevent.eventName"
+                name="eventName"
+                disabled="true"
               />
-              <label class="form-label" for="form7Example3">Event name</label>
             </div>
 
-            <!-- Text input -->
+            <!-- Name input -->
             <div class="form-outline mb-4">
               <input
                 type="text"
-                id="Applicant Name"
+                id="applicantName"
                 class="form-control"
                 placeholder="Applicant Name"
+                [(ngModel)]="bookevent.name"
+                name="name"
               />
-              <label class="form-label" for="form7Example4"
-                >Applicant Name</label
-              >
             </div>
 
-            <!-- Email input -->
+            <!-- Address input -->
             <div class="form-outline mb-4">
               <input
                 type="text"
                 id="Address"
                 class="form-control"
                 placeholder="Address"
+                [(ngModel)]="bookevent.userAddress"
+                name="userAddress"
               />
-              <label class="form-label" for="form7Example5">Address</label>
             </div>
-
-            <!-- Number input -->
             <div class="form-outline mb-4">
-              <input type="number" id="form7Example6" class="form-control" />
-              <label class="form-label" for="form7Example6">Phone Number</label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                class="form-control"
+                placeholder="Phone Number"
+                [(ngModel)]="bookevent.phoneNumber"
+                name="phoneNumber"
+              />
+            </div>
+            <div class="form-outline mb-4">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Email Id"
+                [(ngModel)]="bookevent.email"
+                name="email"
+              />
             </div>
             <div class="row mb-4">
               <div class="col">
@@ -54,56 +70,79 @@
                   <input
                     type="date"
                     min="{{ currentdate | date: 'yyyy-MM-dd' }}"
-                    id="Event Date"
+                    id="eventDate"
                     class="form-control"
                     placeholder="Event Date"
+                    [(ngModel)]="bookevent.eventDate"
+                    name="eventDate"
                   />
-                  <label class="form-label" for="form7Example1"
-                    >Event Date</label
-                  >
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
                   <input
                     type="time"
-                    id="Event Time"
+                    id="eventTime"
                     class="form-control"
                     placeholder="Event Time"
+                    [(ngModel)]="bookevent.eventTime"
+                    name="eventTime"
                   />
-                  <label class="form-label" for="form7Example2"
-                    >Event Time</label
-                  >
                 </div>
               </div>
             </div>
             <!-- Message input -->
             <div class="form-outline mb-4">
               <input
-                type="text"
-                id="No of people"
+                type="number"
+                id="NoOfpeople"
                 class="form-control"
                 placeholder="No of people"
+                [(ngModel)]="bookevent.noOfPeople"
+                name="noOfPeople"
               />
-              <label class="form-label" for="form7Example7">No of People</label>
             </div>
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">
-                  <select name="foodMenu" id="foodMenu" class="form-control" >
-                    <option value="foodMenu">select FoodMenu</option>
+                  <select
+                    class="form-control"
+                    id="foodMenu"
+                    [(ngModel)]="bookevent.menu"
+                    name="menu"
+                    (change)="updateFoodMenuPrice($event)"
+                  >
+                    <option value="0" disabled>select FoodMenu</option>
+                    <option
+                      [value]="foodmenu.menuPrice"
+                      *ngFor="let foodmenu of foodMenuArr"
+                    >
+                      {{ foodmenu.menuName }} :
+                      {{ foodmenu.menuPrice | currency: "INR" }}
+                    </option>
                   </select>
-                  <label for="cars">Food Menu</label>
                 </div>
               </div>
               <div class="col">
                 <div class="form-outline">
-                  <select name="cars" id="cars" class="form-control" >
-                    <option value="addon">Select Addon</option>
+                  <select
+                    class="form-control"
+                    id="addon"
+                    [(ngModel)]="bookevent.addon"
+                    name="addon"
+                    (change)="updateAddonPrice($event)"
+                  >
+                    <option value="0" disabled>select Addon</option>
+                    <option
+                      [value]="addon.addonPrice"
+                      *ngFor="let addon of addonArr"
+                    >
+                      {{ addon.addonName }} :
+                      {{ addon.addonPrice | currency: "INR" }}
+                    </option>
                   </select>
-                  <label for="cars">Addon</label>
                 </div>
-                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -120,29 +159,36 @@
             <li
               class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
             >
-              Products
-              <span>$53.98</span>
+              Theme
+              <span>{{ theme.themeCost }}</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
+            >
+              FoodMenu
+              <span>{{ foodmenuPrice }}</span>
             </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-center px-0"
             >
-              Shipping
-              <span>Gratis</span>
+              Addon
+              <span>{{ addonPrice }}</span>
             </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
             >
               <div>
                 <strong>Total amount</strong>
-                <strong>
-                  <p class="mb-0">(including VAT)</p>
-                </strong>
               </div>
-              <span><strong>$53.98</strong></span>
+              <span
+                ><strong>{{ totalPrice }}</strong></span
+              >
             </li>
           </ul>
 
-          <button type="button" class="btn btn-primary">Make purchase</button>
+          <button type="button" class="btn btn-primary" (click)="BookEvent()">
+            Make Booking
+          </button>
         </div>
       </div>
     </div>

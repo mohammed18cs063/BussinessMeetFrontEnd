@@ -18,4 +18,8 @@ export class UserService {
     return this.httpClient.delete(`http://localhost:8080/admin/deleteUser/${id}`);
   }
 
+  getUser(id:number):Observable<UserModel>{
+    return this.httpClient.get<UserModel>(`http://localhost:8080/user/${id}`);
+  }
+
 }

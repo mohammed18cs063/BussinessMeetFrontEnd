@@ -1,0 +1,64 @@
+<app-user-header></app-user-header>
+<section class="sec">
+<div class="container"><br>
+    <div class="text-center"><h1>Booked Events</h1></div><br><br>
+      
+    
+    
+      <div  *ngFor="let event of events">
+          
+            <div class="row" styles="p3-border bg-light;">
+                <div class="col">
+                    
+                    {{ event. eventId }}
+                </div>
+                <div class="col">
+                    {{ event.eventName }}
+                </div> 
+                <div class="col">
+                    {{event.eventDate}}
+                </div>  
+                <div class="col">
+                    {{event.eventTime}}
+                </div>       
+                <!-- <div class="col">
+                    {{event.themeCost+event.addonPrice}} 
+                </div> -->
+                <div class="col">
+                    
+                  <!-- <button
+                  type="button"
+                  class="btn btn-md btn-success"
+                  (click)="edit(event.eventId)"
+                  
+                >
+                  Edit
+                  </button> -->
+                
+                </div>
+                <div class="col">
+                    <button
+                  type="button"
+                  class="btn btn-md btn-danger"
+                  (click)="deleteEvent(event.eventId)"
+                >
+                  Cancel
+                </button>
+
+                </div>
+              
+                
+            </div><br>
+            </div><br><br>
+            
+            <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="button" class="btn btn-primary btn-lg mr-4" routerLink="/user/invoice" routerLinkActive="active">
+                Invoice
+            </button>
+            <button type="button" class="btn btn-primary btn-lg" routerLink="/user/feedback" routerLinkActive="active">
+                Feedback
+            </button></div> -->
+        </div>
+        
+        </section>
+          

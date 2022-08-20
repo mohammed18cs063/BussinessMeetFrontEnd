@@ -21,14 +21,14 @@ export class ThemeService {
     return this.httpClient.get<ThemeModel[]>(`http://localhost:8080/admin/themes`);
   }
 
-  deleteUser(id:number): Observable<Object>{
+  deleteTheme(id:number): Observable<Object>{
     return this.httpClient.delete(`http://localhost:8080/admin/deleteTheme/${id}`);
   }
-  getUserById(id:number):Observable<ThemeModel>{
+  getTheme(id:number):Observable<ThemeModel>{
     return this.httpClient.get<ThemeModel>(`http://localhost:8080/admin/theme/${id}`);
   }
 
-  updateUser(id: number,user:ThemeModel): Observable<Object>{
+  updateTheme(id: number,user:ThemeModel): Observable<Object>{
     return this.httpClient.put(`http://localhost:8080/admin/editTheme/${id}`,user);
   }
 }
