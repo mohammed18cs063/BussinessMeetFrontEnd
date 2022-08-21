@@ -1,22 +1,23 @@
-<!-- <section class="sec"
+<div class="fixed-top"><app-admin-header></app-admin-header></div>
+<section class="sec"
 style="
   background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  ba
   height: 100vh;
 ">
-<<app-admin-header></app-admin-header>
-
   <div class="container">
     <br />
-    <div class="text-center"><h1>Booked Events</h1></div>
+    <div class="text-center mt-5"><h1>Booked Events</h1></div>
     <br /><br />
 
     <div *ngFor="let event of events">
       <div class="row" styles="p3-border bg-light;">
         <div class="col">
           {{ event.eventId }}
+        </div>
+        <div class="col">
+          {{ event.userId }}
         </div>
         <div class="col">
           {{ event.eventName }}
@@ -30,7 +31,7 @@ style="
         <div class="col">
           <button
             type="button"
-            class="btn btn-md btn-light btn-outline-secondary"
+            class="btn btn-md btn-light btn-outline-danger"
             (click)="deleteEvent(event.eventId)"
           >
             Cancel
@@ -41,4 +42,4 @@ style="
     </div>
     <br /><br />
   </div>
-</section> -->
+</section>

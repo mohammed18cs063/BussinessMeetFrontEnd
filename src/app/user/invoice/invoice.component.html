@@ -25,7 +25,7 @@
                 bookevent.eventId
               }}
             </li>
-            <li class="text-black mt-1">{{ bookevent.date }}</li>
+            <li class="text-black mt-1">{{ bookevent.eventDate }}</li>
           </ul>
           <hr />
           <br />
@@ -36,7 +36,7 @@
             <p>Theme</p>
           </div>
           <div class="col-xl-2">
-            <p class="float-end">{{ bookevent.theme }}</p>
+            <p class="float-end">{{ bookevent.theme | currency:'INR' }}</p>
           </div>
           <hr />
         </div>
@@ -45,7 +45,7 @@
             <p>foodMenu</p>
           </div>
           <div class="col-xl-2">
-            <p class="float-end">{{ menu }}</p>
+            <p class="float-end">{{ menu | currency:'INR' }}</p>
           </div>
           <hr />
         </div>
@@ -54,7 +54,7 @@
             <p>Addon</p>
           </div>
           <div class="col-xl-2">
-            <p class="float-end">{{ bookevent.addon }}</p>
+            <p class="float-end">{{ bookevent.addon | currency:'INR'}}</p>
           </div>
           <hr />
         </div>
@@ -65,7 +65,7 @@
           </div>
           <div class="col-xl-2">
             <p class="float-end">
-              <strong>{{ total }}</strong>
+              <strong>{{ total | currency:'INR' }}</strong>
             </p>
           </div>
           <hr />
@@ -74,7 +74,7 @@
         <div class="text-center" style="margin-top: 3rem; margin-bottom: 1rem">
           <button
             type="button"
-            [routerLink]="['/user/invoice', bookevent['eventId']]"
+            [routerLink]="['/user/view-booked-events']"
             routerLinkActive="active"
             class="btn btn-lg btn-success"
           >

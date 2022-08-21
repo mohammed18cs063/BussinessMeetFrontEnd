@@ -20,6 +20,10 @@ export class BookEventService {
   {
     return this.httpClient.get<BookEvent[]>(`http://localhost:8080/user/view-booked-events/${id}`);
   }
+  public getAll():Observable<BookEvent[]>
+  {
+    return this.httpClient.get<BookEvent[]>(`http://localhost:8080/admin/view-booked-event`);
+  }
 
   public getByEventId(id:number)
   {

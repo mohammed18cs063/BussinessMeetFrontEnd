@@ -1,0 +1,12 @@
+.row{
+    display:flex;
+    background:hsla(0, 1%, 59%, 0.705);
+    font-size: large;
+    
+}
+.col{
+    color: white;
+}
+h1{
+    color: white;
+}

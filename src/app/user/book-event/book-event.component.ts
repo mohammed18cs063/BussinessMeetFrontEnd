@@ -103,7 +103,7 @@ export class BookEventComponent implements OnInit {
     this.bookeventService.BookingEvent(this.bookevent).subscribe(
       (_data) => {
         alert('Event Booked Successfully');
-        this.router.navigate(['user/invoice']);
+        this.router.navigate(['user/view-booked-events']);
       },
 
       (_error) => alert('Something went wrong ')

@@ -1,4 +1,4 @@
-<app-user-header></app-user-header>
+<div class="fixed-top"><app-user-header></app-user-header></div>
 <section class="sec"
 style="
   background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
@@ -8,7 +8,7 @@ style="
 ">
   <div class="container">
     <br />
-    <div class="text-center"><h1>Booked Events</h1></div>
+    <div class="text-center mt-5"><h1>Booked Events</h1></div>
     <br /><br />
 
     <div *ngFor="let event of events">
@@ -25,10 +25,18 @@ style="
         <div class="col">
           {{ event.eventTime }}
         </div>
+          <a
+            type="button"
+            class="btn btn-md btn-light btn-outline-secondary"
+            [routerLink]="['/user/invoice',event['eventId']]"
+            routerLinkActive="active"
+          >
+            Invoice
+        </a>
         <div class="col">
           <button
             type="button"
-            class="btn btn-md btn-light btn-outline-secondary"
+            class="btn btn-md btn-light btn-outline-danger"
             (click)="deleteEvent(event.eventId)"
           >
             Cancel

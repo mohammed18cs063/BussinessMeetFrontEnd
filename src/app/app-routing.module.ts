@@ -24,6 +24,7 @@ import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.co
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { ViewBookedEventComponent } from './user/book-event/view-booked-event/view-booked-event.component';
 import { InvoiceComponent } from './user/invoice/invoice.component';
+import { BookedEventsComponent } from './admin/booked-events/booked-events.component';
 
 
 const routes: Routes = [
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path:'user/feedback',canActivate : [AuthGuard,UserGuard],component:FeedbackComponent},
   {path:'admin/feedback',canActivate : [AuthGuard,AdminGuard],component:AdminFeedbackComponent},
   {path:'admin/view-users',canActivate : [AuthGuard,AdminGuard],component:ViewUsersComponent},
-  {path:'user/invoice/:id',canActivate:[AuthGuard,UserGuard],component:InvoiceComponent},
+  {path:'user/invoice/:eventId',canActivate:[AuthGuard,UserGuard],component:InvoiceComponent},
+  {path:'admin/view-booked-events', canActivate:[AuthGuard,AdminGuard],component:BookedEventsComponent},
   {path:'**',redirectTo:"/login",pathMatch:'full'}//should be in last
 ];
 
