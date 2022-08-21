@@ -1,21 +1,46 @@
-
-<app-user-header></app-user-header>
-
-    <div class= "bg-image" style="background-image:url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1'); height:15cm; ">
-    <div class="text-center" style="font-style:italic;"><br><h2>Hello... </h2><h3>Have a Good Day!!</h3><br></div>
-    <div class="col-7 mx-auto">
-<div class="card" style="width: 48rem;">
-    <div class="card-body">
+<section
+  style="
+    background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+  <div class="fixed-top"><app-user-header></app-user-header></div>
+  <br /><br />
+  <div class="text-center" style="font-style: italic; color: white">
+    <br />
+    <h2>Hello...</h2>
+    <h3>Have a Good Day!!</h3>
+    <br />
+  </div>
+  <div class="col-7 mx-auto">
+    <div
+      class="card mb-8 shadow-lg rounded"
+      style=" background-color: hsla(0, 0%, 100%, 0.797)"
+    >
+      <div class="card-body">
         <div class="text-center">
-      <h5 class="card-title">About Us</h5>
-      <p class="card-text">Affordable Meeting planners of your choice. We are a leading provider of Formal and Informal Meetings inside and outside any Organization. 
-        We also have additional arrangements based on your request for you to enjoy your day at our spot.</p>
-    <h4>Happy to Have you Here</h4><br>
-    <button routerLink="/user/user-theme" routerLinkActive="active" type="button" class="btn btn-primary ">Continue</button>
+          <h5 class="card-title">About Us</h5>
+          <p class="card-text">
+            Affordable Meeting planners of your choice. We are a leading
+            provider of Formal and Informal Meetings inside and outside any
+            Organization. We also have additional arrangements based on your
+            request for you to enjoy your day at our spot.
+          </p>
+          <h4>Happy to Have you Here</h4>
+          <br />
+          <button
+            routerLink="/user/user-theme"
+            routerLinkActive="active"
+            type="button"
+            class="btn btn-dark"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </div>
-</div>
   </div>
-  </div>
-<router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
+</section>

@@ -39,7 +39,9 @@ export class BookEventComponent implements OnInit {
     private addOnService: AddonService,
     private themeService: ThemeService,
     private menu: FoodMenuService
-  ) {}
+  ) {
+    //
+  }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
@@ -50,6 +52,7 @@ export class BookEventComponent implements OnInit {
 
       console.log(data);
       this.bookevent.eventName = this.theme.themeName;
+      this.bookevent.theme=this.theme.themeCost;
     });
     this.userService.getUser(this.loginService.User.id).subscribe((data) => {
       this.user = data;
@@ -58,10 +61,9 @@ export class BookEventComponent implements OnInit {
       this.bookevent.email = this.user.email;
     });
     this.bookevent.userId = this.loginService.User.id;
-    // this.forms();
     this.getAddons();
     this.getMenu();
-    this.UpdateTotalPrice();
+    //this.UpdateTotalPrice();
   }
 
   public getAddons() {
@@ -78,30 +80,30 @@ export class BookEventComponent implements OnInit {
     });
   }
 
-  public updateAddonPrice(event) {
-    this.bookevent.addon = event.target.value;
-    this.UpdateTotalPrice();
-  }
+  // public updateAddonPrice(event) {
+  //   this.bookevent.addon = event.target.value;
+  //   this.UpdateTotalPrice();
+  // }
 
-  public updateFoodMenuPrice(event) {
-    this.bookevent.menu = event.target.value;
-    this.UpdateTotalPrice();
-  }
+  // public updateFoodMenuPrice(event) {
+  //   this.bookevent.menu = event.target.value;
+  //   this.UpdateTotalPrice();
+  // }
 
-  UpdateTotalPrice() {
-    this.totalPrice = Number(
-      this.theme.themeCost +
-        this.bookevent.addon +
-        this.bookevent.menu * this.bookevent.noOfPeople
-    );
-  }
+  // UpdateTotalPrice() {
+  //   this.totalPrice = Number(
+  //     this.theme.themeCost +
+  //       this.bookevent.addon +
+  //       this.bookevent.menu * this.bookevent.noOfPeople
+  //   );
+  // }
 
   BookEvent() {
     console.log(this.bookevent);
     this.bookeventService.BookingEvent(this.bookevent).subscribe(
       (_data) => {
         alert('Event Booked Successfully');
-        this.router.navigate(['user/view-booked-events']);
+        this.router.navigate(['user/invoice']);
       },
 
       (_error) => alert('Something went wrong ')

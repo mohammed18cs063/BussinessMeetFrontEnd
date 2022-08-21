@@ -1,0 +1,87 @@
+<section
+  style="
+    background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+  <div class="fixed-top"><app-user-header></app-user-header></div>
+  <br />
+  <div class="container" style="color: white">
+    <div
+      class="card m-4box-shadow"
+      style="background-color: hsla(0, 0%, 31%, 0.783)"
+    >
+      <div class="card-body mx-5">
+        <p class="text-center mt-2" style="font-size: 30px">
+          Thanks for your Booking!
+        </p>
+        <div class="row">
+          <ul class="list-unstyled">
+            <li class="text">{{ bookevent.name }}</li>
+            <li class="text-muted">
+              <span class="text-black">Booking Id:</span>#{{
+                bookevent.eventId
+              }}
+            </li>
+            <li class="text-black mt-1">{{ bookevent.date }}</li>
+          </ul>
+          <hr />
+          <br />
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-xl-10">
+            <p>Theme</p>
+          </div>
+          <div class="col-xl-2">
+            <p class="float-end">{{ bookevent.theme }}</p>
+          </div>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-xl-10">
+            <p>foodMenu</p>
+          </div>
+          <div class="col-xl-2">
+            <p class="float-end">{{ menu }}</p>
+          </div>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-xl-10">
+            <p>Addon</p>
+          </div>
+          <div class="col-xl-2">
+            <p class="float-end">{{ bookevent.addon }}</p>
+          </div>
+          <hr />
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-xl-10">
+            <p><strong>Total</strong></p>
+          </div>
+          <div class="col-xl-2">
+            <p class="float-end">
+              <strong>{{ total }}</strong>
+            </p>
+          </div>
+          <hr />
+        </div>
+
+        <div class="text-center" style="margin-top: 3rem; margin-bottom: 1rem">
+          <button
+            type="button"
+            [routerLink]="['/user/invoice', bookevent['eventId']]"
+            routerLinkActive="active"
+            class="btn btn-lg btn-success"
+          >
+            Payment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

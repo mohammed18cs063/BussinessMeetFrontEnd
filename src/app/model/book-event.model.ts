@@ -13,4 +13,5 @@ export class BookEvent {
     menu !: number ;
     addon !: number ;
     userId !: number ;
+    theme !: number;
 }

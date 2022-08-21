@@ -1,7 +1,13 @@
 <app-user-header></app-user-header>
-<div class="sec">
-  <div class="row">
-    <div class="col-md-8 mb-4">
+<div class="sec"
+style="
+  background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-12 col-md-9 col-lg-9 col-xl-7">
       <div class="card mb-4">
         <div class="card-header py-3">
           <h5 class="mb-0" style="margin-left: 45%">Book Event</h5>
@@ -105,14 +111,13 @@
             <div class="row mb-4">
               <div class="col">
                 <div class="form-outline">
+                  <label>Select Menu</label>
                   <select
                     class="form-control"
                     id="foodMenu"
                     [(ngModel)]="bookevent.menu"
                     name="menu"
-                    (change)="updateFoodMenuPrice($event)"
-                  >
-                    <option value="0" disabled>select FoodMenu</option>
+                    >
                     <option
                       [value]="foodmenu.menuPrice"
                       *ngFor="let foodmenu of foodMenuArr"
@@ -125,14 +130,13 @@
               </div>
               <div class="col">
                 <div class="form-outline">
+                  <label>Select Addon</label>
                   <select
                     class="form-control"
                     id="addon"
                     [(ngModel)]="bookevent.addon"
                     name="addon"
-                    (change)="updateAddonPrice($event)"
                   >
-                    <option value="0" disabled>select Addon</option>
                     <option
                       [value]="addon.addonPrice"
                       *ngFor="let addon of addonArr"
@@ -144,51 +148,14 @@
                 </div>
               </div>
             </div>
+            <button
+              type="button"
+              class="btn btn-primary col-md-5 text-center"
+              (click)="BookEvent()"
+            >
+              Make Booking
+            </button>
           </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card mb-4">
-        <div class="card-header py-3">
-          <h5 class="mb-0">Summary</h5>
-        </div>
-        <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
-            >
-              Theme
-              <span>{{ theme.themeCost }}</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0"
-            >
-              FoodMenu
-              <span>{{ foodmenuPrice }}</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center px-0"
-            >
-              Addon
-              <span>{{ addonPrice }}</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
-            >
-              <div>
-                <strong>Total amount</strong>
-              </div>
-              <span
-                ><strong>{{ totalPrice }}</strong></span
-              >
-            </li>
-          </ul>
-
-          <button type="button" class="btn btn-primary" (click)="BookEvent()">
-            Make Booking
-          </button>
         </div>
       </div>
     </div>

@@ -28,6 +28,8 @@ import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { ViewBookedEventComponent } from './user/book-event/view-booked-event/view-booked-event.component';
+import { InvoiceComponent } from './user/invoice/invoice.component';
+import { BookedEventsComponent } from './admin/booked-events/booked-events.component';
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { ViewBookedEventComponent } from './user/book-event/view-booked-event/vi
     AdminFeedbackComponent,
     ViewUsersComponent,
     ViewBookedEventComponent,
+    InvoiceComponent,
+    BookedEventsComponent,
   ],
   imports: [
     BrowserModule,

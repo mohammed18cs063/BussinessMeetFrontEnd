@@ -23,6 +23,8 @@ import { FeedbackComponent } from './user/feedback/feedback.component';
 import { AdminFeedbackComponent } from './admin/admin-feedback/admin-feedback.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { ViewBookedEventComponent } from './user/book-event/view-booked-event/view-booked-event.component';
+import { InvoiceComponent } from './user/invoice/invoice.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'user/user-theme', pathMatch:'full'},
@@ -46,6 +48,7 @@ const routes: Routes = [
   {path:'user/feedback',canActivate : [AuthGuard,UserGuard],component:FeedbackComponent},
   {path:'admin/feedback',canActivate : [AuthGuard,AdminGuard],component:AdminFeedbackComponent},
   {path:'admin/view-users',canActivate : [AuthGuard,AdminGuard],component:ViewUsersComponent},
+  {path:'user/invoice/:id',canActivate:[AuthGuard,UserGuard],component:InvoiceComponent},
   {path:'**',redirectTo:"/login",pathMatch:'full'}//should be in last
 ];
 

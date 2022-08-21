@@ -1,32 +1,44 @@
-<app-user-header></app-user-header>
-<div class="album py-4"  style="background-image: url('https://img.freepik.com/free-vector/modern-banner-with-abstract-low-poly-design_1048-14340.jpg?w=1380&t=st=1659881461~exp=1659882061~hmac=84a2255dfc84b96be2b58f7748ead57ae639071a69d944842b56aef5c27d86f1');">
-     
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4" *ngFor="let theme of Uthemes">
-          <div class="card mb-4 box-shadow" style="opacity: 0.9;">
-            <a
-              [routerLink]="['/user/book-event',theme['id']]"
-            >
-              <img
-                class="card-img-top"
-                [alt]="theme.themeName"
-                style="height: 225px; width: 100%; display: block"
-                [src]="theme.themeImageUrl"></a>
-            <div class="card-body">
-              <h4 class="card-title">{{ theme.themeName }}</h4>
-              <p class="card-text">
-                {{ theme.themeDescription }}
-              </p>
-              <h5>Price:{{ theme.themeCost | currency: "INR" }}</h5>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" [routerLink]="['/user/book-event',theme['id']]"
-                  routerLinkActive="active" class="btn btn-sm btn-outline-secondary" >
-                    Book
-                  </button>
-                  
-                </div>
+
+<div
+  style="
+    background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
+<div class="fixed-top"><app-user-header></app-user-header></div>
+
+  <div class="container" style="margin-top: 3%">
+    <br>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let theme of Uthemes">
+        <div 
+        class="card mb-4 shadow-lg rounded" 
+        style="background-color: hsla(0, 0%, 100%, 0.797)">
+          <a [routerLink]="['/user/book-event', theme['id']]">
+            <img
+              class="card-img-top"
+              [alt]="theme.themeName"
+              style="height: 225px; width: 100%; display: block"
+              [src]="theme.themeImageUrl"
+          /></a>
+          <div class="card-body">
+            <h4 class="card-title">{{ theme.themeName }}</h4>
+            <p class="card-text">
+              {{ theme.themeDescription }}
+            </p>
+            <h5>Price:{{ theme.themeCost | currency: "INR" }}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  [routerLink]="['/user/book-event', theme['id']]"
+                  routerLinkActive="active"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Book
+                </button>
               </div>
             </div>
           </div>
@@ -34,4 +46,4 @@
       </div>
     </div>
   </div>
-  
+</div>
