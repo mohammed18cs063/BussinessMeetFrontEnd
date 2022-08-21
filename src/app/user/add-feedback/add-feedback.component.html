@@ -1,56 +1,74 @@
-<app-user-header></app-user-header>
-<div class="sec"
+<div
+  class="sec"
   style="
     background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
   "
-  >
-    <div class="container d-flex justify-content-center mt-5">
-      <div class="card text-center mb-5">
-        <div class="circle-image">
-          <img
-            alt
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3P67ceZ6BkgckhxdzPMyotMIifF0LbeOvgg&usqp=CAU"
-            width="50"
-          />
+>
+  <div class="header-fixed"><app-user-header></app-user-header></div>
+  <div class="container d-flex justify-content-center mt-5">
+    <div class="card text-center mb-5">
+      <div class="circle-image">
+        <img
+          alt
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3P67ceZ6BkgckhxdzPMyotMIifF0LbeOvgg&usqp=CAU"
+          width="50"
+        />
+      </div>
+
+      <span class="name mb-1 fw-500">B M Management</span>
+      <small class="text-black-50 font-weight-bold"
+        >Give Your Review based on our service!!</small
+      >
+
+      <div class="rate bg-dark py-3 text-white mt-3">
+        <div class="form-group Center w-80">
+          <div class="rate bg-dark text-white">
+            <label for="FormControl"
+              ><h6 class="text-center">Write Your Review</h6></label
+            >
+          </div>
         </div>
 
-        <span class="name mb-1 fw-500">B M Management</span>
-        <small class="text-black-50 font-weight-bold"
-          >Give Your Review based on our service!!</small
-        >
-
-        <div class="rate bg-dark py-3 text-white mt-3">
-            <div class="form-group Center w-80">
-              <div class="rate bg-dark text-white">
-                <label for="FormControl"
-                  ><h6 class="text-center">Write Your Review</h6></label
-                >
-              </div>
-            </div>
-              
-     <div class="form-group">
-      <label for="academyName" style="color:black">UserName</label>
-      <input [(ngModel)]="feedback.name"type="text" size="40" class="form-control" style="border-radius: 15px;" placeholder="Enter the UserName" name="UserName" id="UserName" />   
-  </div>
-  <div class="form-group ">
-      <label for="contactNumber" style="color:black">Comments</label>
-      <input  [(ngModel)]="feedback.feedbackMsg" type="text" row="3" size="40" name="comments" class="form-control" style="border-radius: 15px;" placeholder="Enter the comments" id="comments"/>
-
-  </div>
-            <div class="buttons px-4 mt-0">
-              <button
-                class="btn btn-primary btn-block rating-submit"
-                type="submit"
-                (click)="addFeedback()"
-              >
-                Submit
-              </button>
-            </div>
-          
+        <div class="form-group">
+          <label for="UserName" style="color: white">UserName</label>
+          <input
+            [(ngModel)]="feedback.name"
+            type="text"
+            size="40"
+            class="form-control"
+            style="border-radius: 15px"
+            placeholder="Enter the UserName"
+            name="UserName"
+            id="UserName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Comments" style="color: white">Comments</label>
+          <input
+            [(ngModel)]="feedback.feedbackMsg"
+            type="text"
+            row="3"
+            size="40"
+            name="comments"
+            class="form-control"
+            style="border-radius: 15px"
+            placeholder="Enter the comments"
+            id="comments"
+          />
+        </div>
+        <div class="buttons px-4 mt-0">
+          <button
+            class="btn btn-primary btn-block rating-submit"
+            type="submit"
+            (click)="addFeedback()"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>
-</div> 
+  </div>
+</div>
