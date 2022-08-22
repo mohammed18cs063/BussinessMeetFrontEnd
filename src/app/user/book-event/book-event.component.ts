@@ -63,7 +63,6 @@ export class BookEventComponent implements OnInit {
     this.bookevent.userId = this.loginService.User.id;
     this.getAddons();
     this.getMenu();
-    //this.UpdateTotalPrice();
   }
 
   public getAddons() {
@@ -79,24 +78,6 @@ export class BookEventComponent implements OnInit {
       console.log(data);
     });
   }
-
-  // public updateAddonPrice(event) {
-  //   this.bookevent.addon = event.target.value;
-  //   this.UpdateTotalPrice();
-  // }
-
-  // public updateFoodMenuPrice(event) {
-  //   this.bookevent.menu = event.target.value;
-  //   this.UpdateTotalPrice();
-  // }
-
-  // UpdateTotalPrice() {
-  //   this.totalPrice = Number(
-  //     this.theme.themeCost +
-  //       this.bookevent.addon +
-  //       this.bookevent.menu * this.bookevent.noOfPeople
-  //   );
-  // }
 
   BookEvent() {
     console.log(this.bookevent);

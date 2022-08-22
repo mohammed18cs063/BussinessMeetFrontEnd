@@ -4,18 +4,14 @@ import { Observable } from 'rxjs';
 import { UserModel } from '../model/user-model.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserSignupService {
-   baseUrl="http://localhost:8080/signup";
-  constructor(private httpClient: HttpClient)
-  {  
-  
-  }
+  baseUrl = 'http://localhost:8080/signup';
+  constructor(private httpClient: HttpClient) {}
 
- public registerUser(user: UserModel) :Observable<object>
-  {
+  public registerUser(user: UserModel): Observable<object> {
     console.log(user);
-    return this.httpClient.post(`${this.baseUrl}`,user);
+    return this.httpClient.post(`${this.baseUrl}`, user);
   }
 }

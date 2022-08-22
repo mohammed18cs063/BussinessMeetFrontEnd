@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserloginService } from '../services/userlogin.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserGuard implements CanActivate {
   constructor(private loginservice: UserloginService, private router: Router) {}
@@ -22,5 +28,4 @@ export class UserGuard implements CanActivate {
     }
     return true;
   }
-  
 }

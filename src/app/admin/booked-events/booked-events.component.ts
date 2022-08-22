@@ -7,7 +7,7 @@ import { UserloginService } from 'src/app/services/userlogin.service';
 @Component({
   selector: 'app-booked-events',
   templateUrl: './booked-events.component.html',
-  styleUrls: ['./booked-events.component.css']
+  styleUrls: ['./booked-events.component.css'],
 })
 export class BookedEventsComponent implements OnInit {
   events: Array<BookEvent> = new Array();
@@ -23,12 +23,10 @@ export class BookedEventsComponent implements OnInit {
   }
 
   getBookedEvents() {
-    this.bookedService
-      .getAll()
-      .subscribe((data) => {
-        console.log(data);
-        this.events = data;
-      });
+    this.bookedService.getAll().subscribe((data) => {
+      console.log(data);
+      this.events = data;
+    });
   }
   deleteEvent(id: number) {
     this.bookedService.deleteEvent(id).subscribe((data) => {
@@ -37,5 +35,4 @@ export class BookedEventsComponent implements OnInit {
       this.getBookedEvents();
     });
   }
-
 }

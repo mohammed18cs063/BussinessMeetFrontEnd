@@ -4,19 +4,21 @@ import { Observable } from 'rxjs';
 import { FeedbackModel } from '../model/feedback.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FeedbackService {
-
-  constructor(private httpClient: HttpClient) { }
-  getAllFeedbacks(): Observable<FeedbackModel[]>
-  {
-    return this.httpClient.get<FeedbackModel[]>(`http://localhost:8080/user/feedback`);
+  constructor(private httpClient: HttpClient) {}
+  getAllFeedbacks(): Observable<FeedbackModel[]> {
+    return this.httpClient.get<FeedbackModel[]>(
+      `http://localhost:8080/user/feedback`
+    );
   }
 
-  AddingFeedback(addFeedback:FeedbackModel): Observable<Object>
-  {
+  AddingFeedback(addFeedback: FeedbackModel): Observable<Object> {
     console.log(addFeedback);
-    return this.httpClient.post<any>(`http://localhost:8080/user/add-feedback`,addFeedback);
+    return this.httpClient.post<any>(
+      `http://localhost:8080/user/add-feedback`,
+      addFeedback
+    );
   }
 }

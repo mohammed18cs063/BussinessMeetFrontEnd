@@ -6,21 +6,24 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 @Component({
   selector: 'app-admin-feedback',
   templateUrl: './admin-feedback.component.html',
-  styleUrls: ['./admin-feedback.component.css']
+  styleUrls: ['./admin-feedback.component.css'],
 })
 export class AdminFeedbackComponent implements OnInit {
-  feedbacks:FeedbackModel[];
+  feedbacks: FeedbackModel[];
 
-  constructor(private activatedRoute:ActivatedRoute,private router:Router,private feedbackService:FeedbackService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private feedbackService: FeedbackService
+  ) {}
 
   ngOnInit(): void {
     this.getFeedback();
   }
 
-  getFeedback(){
-    this.feedbackService.getAllFeedbacks().subscribe(data =>
-      {
-        this.feedbacks=data;
-      })
+  getFeedback() {
+    this.feedbackService.getAllFeedbacks().subscribe((data) => {
+      this.feedbacks = data;
+    });
   }
 }

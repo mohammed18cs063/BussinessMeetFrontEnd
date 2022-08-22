@@ -1,5 +1,5 @@
 export class FeedbackModel {
-    id: number;
-    name:string;
-    feedbackMsg:string;
+  id: number;
+  name: string;
+  feedbackMsg: string;
 }

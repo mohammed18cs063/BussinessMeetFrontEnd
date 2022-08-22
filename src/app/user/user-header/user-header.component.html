@@ -1,62 +1,54 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
   <div class="container-fluid">
-  <a routerLink="/user" class="navbar-brand ">Business Meet Management</a>
-  <button
-    class="navbar-toggler"
-    data-toggle="collapse"
-    data-target="#navcontent"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navcontent">
-    <div class="container d-flex flex-wrap">
-      <ul class="nav me-auto">
-        <li class="nav-item">
-          <a
-            class="nav-link link-primary px-2"
-            routerLink="/user/user-theme"
-            routerLinkActive="active"
-          >
-            Themes
-          </a>
+    <a routerLink="/user" class="navbar-brand">Business Meet Management</a>
+    <button
+      class="navbar-toggler"
+      data-toggle="collapse"
+      data-target="#navcontent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navcontent">
+      <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+          <li class="nav-item">
+            <a
+              class="nav-link link-primary px-2"
+              routerLink="/user/user-theme"
+              routerLinkActive="active"
+            >
+              Themes
+            </a>
           </li>
-          <!-- <li>
-          <a
-            class="nav-link link-primary px-2"
-            routerLink="/user/book-event"
-            routerLinkActive="active"
-          >
-            Book Event
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a
-            class="nav-link link-primary px-2"
-            routerLink="/user/view-booked-events"
-            routerLinkActive="active"
-            >View booked event
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link link-primary px-2"
-            routerLink="/user/feedback"
-            routerLinkActive="active"
-            >Feedback
-          </a>
-        </li>
-      </ul>
-      <ul class="nav">
-        <li class="nav-item">
-          <a
-            class="nav-link link-primary px-2"
-            (click)="Logout()"
-            routerLinkActive="active"
-            >Logout</a
-          >
-        </li>
-      </ul>
+
+          <li class="nav-item">
+            <a
+              class="nav-link link-primary px-2"
+              routerLink="/user/view-booked-events"
+              routerLinkActive="active"
+              >View booked event
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link link-primary px-2"
+              routerLink="/user/feedback"
+              routerLinkActive="active"
+              >Feedback
+            </a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              class="nav-link link-primary px-2"
+              (click)="Logout()"
+              routerLinkActive="active"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
   </div>
 </nav>

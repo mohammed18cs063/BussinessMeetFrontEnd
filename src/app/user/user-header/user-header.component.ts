@@ -4,17 +4,16 @@ import { UserloginService } from 'src/app/services/userlogin.service';
 @Component({
   selector: 'app-user-header',
   templateUrl: './user-header.component.html',
-  styleUrls: ['./user-header.component.css']
+  styleUrls: ['./user-header.component.css'],
 })
 export class UserHeaderComponent implements OnInit {
-
-  constructor(private _loginService:UserloginService) { }
+  constructor(private _loginService: UserloginService) {}
 
   ngOnInit(): void {
     //
   }
 
-  Logout(){
+  Logout() {
     this._loginService.Logout();
   }
 }

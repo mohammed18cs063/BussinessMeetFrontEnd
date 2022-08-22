@@ -1,37 +1,37 @@
-
 <div
-class="sec"
-style="
-  background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 100vh;
-"
+  class="sec"
+  style="
+    background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+  "
 >
-<div class="fixed-top"><app-admin-header></app-admin-header></div>
-<main role="main" class="container" style="margin-top: 3%">
-  <br>
-  <div
-    class="p-3 box-shadow rounded"
-    style="background-color: hsla(0, 3%, 75%, 0.783);"
-  >
-
-    <h5 class="border-bottom border-light pb-2 mb-0">Feedbacks</h5>
-    <div class="media text-muted pt-3" *ngFor="let feedback of feedbacks">
-      <img
-        data-src="holder.js/32x32?theme=thumb&amp;bg=6f42c1&amp;fg=6f42c1&amp;size=1"
-        alt="32x32"
-        class="mr-2 rounded"
-        style="width: 32px; height: 32px"
-        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-        data-holder-rendered="true"
-      />
-      <p class="media-body pb-3 mb-0 lh-125 border-bottom border-light text-white">
-        <strong class="d-block ">@{{ feedback.name }}</strong>
-        {{ feedback.feedbackMsg }}
-      </p>
+  <div class="fixed-top"><app-admin-header></app-admin-header></div>
+  <main role="main" class="container" style="margin-top: 3%">
+    <br />
+    <div
+      class="p-3 box-shadow rounded"
+      style="background-color: hsla(0, 1%, 57%, 0.842)"
+    >
+      <h5 class="border-bottom border-light pb-2 mb-0">Feedbacks</h5>
+      <div class="media text-muted pt-3" *ngFor="let feedback of feedbacks">
+        <img
+          data-src="holder.js/32x32?theme=thumb&amp;bg=6f42c1&amp;fg=6f42c1&amp;size=1"
+          alt="32x32"
+          class="mr-2 rounded"
+          style="width: 32px; height: 32px"
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+          data-holder-rendered="true"
+        />
+        <p
+          class="media-body pb-3 mb-0 lh-125 border-bottom border-light text-white"
+        >
+          <strong class="d-block">@{{ feedback.name }}</strong>
+          {{ feedback.feedbackMsg }}
+        </p>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 </div>

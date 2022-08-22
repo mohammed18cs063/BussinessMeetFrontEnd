@@ -1,11 +1,13 @@
 <div class="fixed-top"><app-user-header></app-user-header></div>
-<section class="sec"
-style="
-  background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-">
+<section
+  class="sec"
+  style="
+    background-image: url(/assets/images/grey-geometrical-shapes-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  "
+>
   <div class="container">
     <br />
     <div class="text-center mt-5"><h1>Booked Events</h1></div>
@@ -25,13 +27,13 @@ style="
         <div class="col">
           {{ event.eventTime }}
         </div>
-          <a
-            type="button"
-            class="btn btn-md btn-light btn-outline-secondary"
-            [routerLink]="['/user/invoice',event['eventId']]"
-            routerLinkActive="active"
-          >
-            Invoice
+        <a
+          type="button"
+          class="btn btn-md btn-light btn-outline-secondary"
+          [routerLink]="['/user/invoice', event['eventId']]"
+          routerLinkActive="active"
+        >
+          Invoice
         </a>
         <div class="col">
           <button
