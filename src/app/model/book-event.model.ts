@@ -1,14 +1,12 @@
-import { Time } from '@angular/common';
-
 export class BookEvent {
   eventId!: number;
   eventName!: string;
   name!: string;
   userAddress!: string;
-  eventDate!: Date;
+  eventDate!: string;
   phoneNumber!: string;
   email!: string;
-  eventTime!: Time;
+  eventTime!: string;
   noOfPeople!: number;
   menu!: number;
   addon!: number;
