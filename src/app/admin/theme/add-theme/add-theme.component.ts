@@ -29,13 +29,13 @@ export class AddThemeComponent implements OnInit {
     this.Addstheme = this.formBuilder.group({
       themeName: [
         '',
-        [Validators.required, Validators.pattern("^[a-zA-Z' ']*")],
+        [Validators.required],
       ],
       themeImageUrl: ['', [Validators.required]],
       themeCost: ['', [Validators.required, Validators.pattern('^[0-9]*')]],
       themeDescription: [
         '',
-        [Validators.required, Validators.pattern("^[a-zA-Z0-9' ']*")],
+        [Validators.required],
       ],
     });
   }

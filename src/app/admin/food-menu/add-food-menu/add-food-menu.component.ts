@@ -27,7 +27,7 @@ export class AddFoodMenuComponent implements OnInit {
   }
   forms() {
     this.Addsfoodmenu = this.formBuilder.group({
-      menuName: ['', [Validators.required, Validators.pattern('^[a-zA-Z-]*')]],
+      menuName: ['', [Validators.required]],                                     //Validators.pattern('^[a-zA-Z-]*')
       menuImageUrl: ['', [Validators.required]],
       itemCategory: ['', [Validators.required]],
       menuPrice: ['', [Validators.required, Validators.pattern('^[0-9.]*')]],

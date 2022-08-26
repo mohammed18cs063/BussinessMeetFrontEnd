@@ -35,9 +35,6 @@
                 <div *ngIf="f['themeName'].errors['required']">
                   Theme Name is required
                 </div>
-                <div *ngIf="f['themeName'].errors['pattern']">
-                  Theme Name is Invalid
-                </div>
               </div>
             </div>
             <div class="form-group m-3">
@@ -122,9 +119,6 @@
               >
                 <div *ngIf="f['themeDescription'].errors['required']">
                   Theme Description is required
-                </div>
-                <div *ngIf="f['themeDescription'].errors['pattern']">
-                  Theme Description is Invalid
                 </div>
               </div>
             </div>

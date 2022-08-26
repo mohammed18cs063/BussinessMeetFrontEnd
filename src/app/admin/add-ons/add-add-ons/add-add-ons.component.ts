@@ -27,7 +27,7 @@ export class AddAddOnsComponent implements OnInit {
   }
   forms() {
     this.Addsaddon = this.formBuilder.group({
-      addonName: ['', [Validators.required, Validators.pattern('^[a-zA-Z-]*')]],
+      addonName: ['', [Validators.required]],
       addonimageUrl: ['', [Validators.required]],
       addonPrice: ['', [Validators.required, Validators.pattern('^[0-9.]*')]],
     });
